@@ -1,0 +1,16 @@
+#printFrame {
+    height: 80vh;
+    width: 75vw;
+    position: fixed;
+    top: 10vh;
+    left: calc(50% - 37.5vw);
+    background-color: white;
+    border: 1px solid black;
+}
+
+@media print {
+
+    .printBtn, .printFrameBtn {
+        display: none;
+    }
+}
