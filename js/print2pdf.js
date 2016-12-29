@@ -52,11 +52,9 @@ $(function() {
                 onrendered: function(canvas) {
                     var imgData = canvas.toDataURL('image/png');
                     var doc = new jsPDF('p', 'mm');
-                    doc.addImage(imgData, 'PNG', 20, 20);
+                    doc.addImage(imgData, 'PNG', 10, 10);
                     doc.save("oppskrift.pdf");
-                },
-                width: 595,
-                height: 842
+                }
             });
         });
 
