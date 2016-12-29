@@ -52,7 +52,7 @@ $(function() {
                 onrendered: function(canvas) {
                     var imgData = canvas.toDataURL('image/png');
                     var doc = new jsPDF('p', 'mm');
-                    doc.addImage(imgData, 'PNG', 10, 10);
+                    doc.addImage(imgData, 'PNG', 20, 20);
                     doc.save("oppskrift.pdf");
                 }
             });
@@ -79,7 +79,7 @@ $(function() {
               }
 
               //submit the form
-              if(confirm("press ok")) {jQuery('form#dr_submission').submit().remove(); }
+              if(confirm("trykk ok for å lage PDF")) {jQuery('form#dr_submission').submit().remove(); }
             };
           };
     });
