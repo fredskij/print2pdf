@@ -8,16 +8,18 @@ $(function() {
         var oppskriftEl = $('.oppskrift').clone();
         oppskriftEl.find('.printBtn').hide();
         var printFrame = $('<iframe id="printFrame"/>');
+        var blockingLayer = $('<div class="blockingLayer"></div>');
         var printerBtn = $('<button class="printerBtn">printer</button>');
         var docraptorBtn = $('<button class="docraptorBtn">docRaptor</button>');
         var jspdfBtn = $('<button class="jspdfBtn">jsPDF</button>');
         var html2canvasBtn = $('<button class="html2canvasBtn">html2canvas</button>');
         var closeFrameBtn = $('<button class="closeFrameBtn">close</button>');
 
+        blockingLayer.appendTo('body');
         printFrame.appendTo('body').contents().find('body').append(oppskriftEl.append(printerBtn).append(docraptorBtn).append(jspdfBtn).append(html2canvasBtn).append(closeFrameBtn));
         printFrame.contents().find('head').append(printCssLink);
 
-        printFrame.css('top', $('.printBtn').offset().top);
+        printFrame.css('top', $('.printBtn').offset().top - 200);
 
         printFrame.contents().find('.printerBtn').on('click', function () {
             $("#printFrame").get(0).contentWindow.print();
@@ -62,6 +64,7 @@ $(function() {
 
         printFrame.contents().find('.closeFrameBtn').on('click', function (e) {
             $("#printFrame").remove();
+            $(".blockingLayer").remove();
         });
 
         var download = function(url, data, method){
