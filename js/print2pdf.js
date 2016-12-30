@@ -17,6 +17,8 @@ $(function() {
         printFrame.appendTo('body').contents().find('body').append(oppskriftEl.append(printerBtn).append(docraptorBtn).append(jspdfBtn).append(html2canvasBtn).append(closeFrameBtn));
         printFrame.contents().find('head').append(printCssLink);
 
+        printFrame.css('top', $('.printBtn').offset().top);
+
         printFrame.contents().find('.printerBtn').on('click', function () {
             $("#printFrame").get(0).contentWindow.print();
         });
