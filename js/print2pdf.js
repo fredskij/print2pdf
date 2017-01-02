@@ -41,10 +41,18 @@ $(function() {
 
         printFrame.contents().find('.jspdfBtn').on('click', function (e) {
             var doc = new jsPDF();
-            var cont = $("#printFrame").contents().find('html').html();
+            var cont = $("#printFrame").contents().find('html').clone();
+            cont.find('img').remove();
+            cont = cont.html();
 
             doc.fromHTML(
-                cont, 15, 15, {'width': 180}
+                cont,
+                15, 15,
+                {'width': 180},
+                function (e) {
+                    console.log('callback stuff: ', e);
+                },
+                {top : 25, bottom : 25 }
             );
 
             doc.output("dataurlnewwindow");
