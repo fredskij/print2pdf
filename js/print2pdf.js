@@ -4,7 +4,8 @@ $(function() {
 
     $('.printBtn').on('click', function () {
 
-        var printCssLink =  $('<link rel="stylesheet" type="text/css" href="https://fredskij.github.io/print2pdf/CSS/stylesheet.css"/><link rel="stylesheet" type="text/css" href="CSS/print2pdf.css"/>');
+        //var printCssLink =  $('<link rel="stylesheet" type="text/css" href="https://fredskij.github.io/print2pdf/CSS/stylesheet.css"/><link rel="stylesheet" type="text/css" href="CSS/print2pdf.css"/>');
+        var printCssLink =  $('<link rel="stylesheet" type="text/css" href="https://fredskij.github.io/print2pdf/CSS/stylesheet_math.css"/><link rel="stylesheet" type="text/css" href="CSS/print2pdf.css"/>');
         var oppskriftEl = $('.oppskrift').clone();
         oppskriftEl.find('.printBtn').hide();
         var printFrame = $('<iframe id="printFrame"/>');
