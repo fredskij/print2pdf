@@ -63,7 +63,7 @@ $(function() {
         printFrame.contents().find('.html2canvasBtn').on('click', function (e) {
             html2canvas($("#printFrame").contents().find('html'), {
                 onrendered: function(canvas) {
-                    var imgData = canvas.toDataURL('image/png');
+                    var imgData = canvas.toDataURLHD('image/png');
                     var doc = new jsPDF('p', 'mm');
                     doc.addImage(imgData, 'PNG', 10, 10);
                     doc.save("oppskrift.pdf");
