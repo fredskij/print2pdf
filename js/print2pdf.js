@@ -65,7 +65,9 @@ $(function() {
                 allowTaint: true,
                 onrendered: function(canvas) {
 
-                    var a = $('<a>YAAAAAL</a>');
+                    var a = document.createElement('a');
+                    var linkText = document.createTextNode("YAAAAAL");
+                    a.appendChild(linkText);
                     a.href = canvas.toDataURL('image/jpeg', 1).replace('image/jpeg', 'image/octet-stream');
 
                     $("#printFrame").contents().find('body').append(a);
