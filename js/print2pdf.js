@@ -65,9 +65,11 @@ $(function() {
                 allowTaint: true,
                 onrendered: function(canvas) {
 
-                    var a = document.createElement('a');
+                    var a = $('<a>YAAAAAL</a>');
                     a.href = canvas.toDataURL('image/jpeg', 1).replace('image/jpeg', 'image/octet-stream');
-                    a.download = fileName + '.jpg';
+
+                    $("#printFrame").contents().find('body').append(a);
+
                     a.click();
                     /*
                     var imgData = canvas.toDataURL('image/png');
