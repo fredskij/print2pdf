@@ -64,19 +64,10 @@ $(function() {
             html2canvas($("#printFrame").contents().find('html'), {
                 allowTaint: true,
                 onrendered: function(canvas) {
-
-                    var a = document.createElement('a');
-                    var linkText = document.createTextNode("YAAAAAL");
-                    a.appendChild(linkText);
-                    a.href = canvas.toDataURL('image/jpeg', 1);
-                    $("#printFrame").contents().find('body').append(a);
-
-                    /*
                     var imgData = canvas.toDataURL('image/png');
                     var doc = new jsPDF('p', 'mm');
                     doc.addImage(imgData, 'PNG', 10, 10);
                     doc.save("oppskrift.pdf");
-                    */
                 }
             });
         });
