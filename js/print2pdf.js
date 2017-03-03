@@ -68,7 +68,7 @@ $(function() {
                     var a = document.createElement('a');
                     var linkText = document.createTextNode("YAAAAAL");
                     a.appendChild(linkText);
-                    a.href = canvas.toDataURL('image/jpeg', 1).replace('image/jpeg', 'image/octet-stream');
+                    a.href = canvas.toDataURL('image/jpeg', 1);
 
                     $("#printFrame").contents().find('body').append(a);
 
