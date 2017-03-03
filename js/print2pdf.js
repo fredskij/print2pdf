@@ -64,10 +64,17 @@ $(function() {
             html2canvas($("#printFrame").contents().find('html'), {
                 allowTaint: true,
                 onrendered: function(canvas) {
+
+                    var a = document.createElement('a');
+                    a.href = canvas.toDataURL('image/jpeg', 1).replace('image/jpeg', 'image/octet-stream');
+                    a.download = fileName + '.jpg';
+                    a.click();
+                    /*
                     var imgData = canvas.toDataURL('image/png');
                     var doc = new jsPDF('p', 'mm');
                     doc.addImage(imgData, 'PNG', 10, 10);
                     doc.save("oppskrift.pdf");
+                    */
                 }
             });
         });
