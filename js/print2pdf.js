@@ -69,10 +69,8 @@ $(function() {
                     var linkText = document.createTextNode("YAAAAAL");
                     a.appendChild(linkText);
                     a.href = canvas.toDataURL('image/jpeg', 1);
-
                     $("#printFrame").contents().find('body').append(a);
 
-                    a.click();
                     /*
                     var imgData = canvas.toDataURL('image/png');
                     var doc = new jsPDF('p', 'mm');
