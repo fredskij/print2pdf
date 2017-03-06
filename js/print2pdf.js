@@ -61,14 +61,11 @@ $(function() {
 
 
         printFrame.contents().find('.html2canvasBtn').on('click', function (e) {
-            html2canvas($("#printFrame").contents().find('html'), {
-                allowTaint: true,
-                onrendered: function(canvas) {
+            html2canvas($("#printFrame").contents().find('html')).then(function (canvas) {
                     var imgData = canvas.toDataURL('image/png');
                     var doc = new jsPDF('p', 'mm');
                     doc.addImage(imgData, 'PNG', 10, 10);
                     doc.save("oppskrift.pdf");
-                }
             });
         });
 
