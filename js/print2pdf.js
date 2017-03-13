@@ -20,7 +20,7 @@ $(function() {
         printFrame.appendTo('body').contents().find('body').append(oppskriftEl.append(printerBtn).append(docraptorBtn).append(jspdfBtn).append(html2canvasBtn).append(closeFrameBtn));
         printFrame.contents().find('head').append(printCssLink);
 
-        printFrame.css('top', $('.printBtn').offset().top - 200);
+        printFrame.css('top', 100);
 
         printFrame.contents().find('.printerBtn').on('click', function () {
             $("#printFrame").get(0).contentWindow.print();
@@ -61,12 +61,16 @@ $(function() {
 
 
         printFrame.contents().find('.html2canvasBtn').on('click', function (e) {
-            html2canvas($("#printFrame").contents().find('html')).then(function (canvas) {
+
+          var targetElem = $("#printFrame").contents().find('body');
+
+          html2canvas(targetElem).then(function (canvas) {
+                    // $(printFrame).contents().find('section').append(canvas);
                     var imgData = canvas.toDataURL('image/png');
                     var doc = new jsPDF('p', 'mm');
                     doc.addImage(imgData, 'PNG', 10, 10);
                     doc.save("oppskrift.pdf");
-            });
+          });
         });
 
         printFrame.contents().find('.closeFrameBtn').on('click', function (e) {

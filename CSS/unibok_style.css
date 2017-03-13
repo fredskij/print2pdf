@@ -972,7 +972,7 @@ body.ie11 #reader .topbar #itemContainer .itemList #layoutStylePanel {
 #reader {
   position: relative;
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
   /*
         In scroll-layout, the next and previous-buttons are positioned on the top left and bottom right
         In singlepage and doublepage layout, the buttons are full height on the left and right of the contentbox
