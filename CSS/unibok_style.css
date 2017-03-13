@@ -1,0 +1,3918 @@
+@charset "UTF-8";
+html {
+  overflow: hidden; }
+
+#bookshelf {
+  position: relative;
+  height: 100%;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-direction: column;
+  /* the right side of the topbar will grow if we are showing the .termsNotAccpeted icon */ }
+  #bookshelf.active {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex; }
+  #bookshelf .toptopbar {
+    background-color: #09788b;
+    height: 20px;
+    line-height: 170%;
+    color: white;
+    font-size: 12px; }
+    #bookshelf .toptopbar .leftSide {
+      float: left;
+      max-width: 75%; }
+      #bookshelf .toptopbar .leftSide > * {
+        float: left;
+        padding-left: 5px;
+        line-height: 20px; }
+      #bookshelf .toptopbar .leftSide .loginInfo {
+        font-size: 11px;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      #bookshelf .toptopbar .leftSide .version {
+        color: white;
+        text-decoration: none; }
+    #bookshelf .toptopbar .rightSide {
+      float: right; }
+      #bookshelf .toptopbar .rightSide > * {
+        float: left;
+        line-height: 21px; }
+      #bookshelf .toptopbar .rightSide .btn-logout {
+        padding: 0 5px 0 5px;
+        border-left: 1px solid #e0e0e0;
+        cursor: pointer;
+        color: white; }
+      #bookshelf .toptopbar .rightSide .btn-logout:hover {
+        text-decoration: underline; }
+  #bookshelf.termsNotAccepted .topbar .publisherCont {
+    display: block; }
+  #bookshelf.termsNotAccepted .topbar #locationInfo {
+    left: calc(50% - 90px) !important; }
+  #bookshelf .topbar {
+    height: 49px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #c3c3c3;
+    text-align: center; }
+    #bookshelf .topbar .leftSide {
+      border-right: 1px solid #c3c3c3;
+      display: block;
+      left: 0;
+      position: absolute; }
+    #bookshelf .topbar .rightSide {
+      display: block;
+      position: absolute;
+      right: 0;
+      border-left: 1px solid white; }
+    #bookshelf .topbar #locationInfo {
+      color: #777;
+      font-size: 16px;
+      font-weight: bold;
+      height: 49px;
+      left: calc(50% - 60px);
+      line-height: 49px;
+      overflow: hidden;
+      padding: 0 10px;
+      position: absolute;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+      @media screen and (max-width: 666px) {
+        #bookshelf .topbar #locationInfo {
+          display: none; } }
+    #bookshelf .topbar div.logoCont, #bookshelf .topbar div.titleCont, #bookshelf .topbar div.publisherCont, #bookshelf .topbar div.malformCont {
+      height: 49px;
+      border-left: 1px solid #c3c3c3;
+      border-right: 1px solid white;
+      float: left; }
+    @media screen and (max-width: 666px) {
+      #bookshelf .topbar div.malformCont {
+        width: 110px; } }
+    #bookshelf .topbar div.publisherCont {
+      float: right; }
+    #bookshelf .topbar div.titleCont {
+      width: 100%; }
+    #bookshelf .topbar div.logoCont {
+      padding-left: 20px; }
+      @media screen and (max-width: 666px) {
+        #bookshelf .topbar div.logoCont {
+          padding-left: 5px; } }
+    #bookshelf .topbar div.publisherCont {
+      padding: 0px 7px 0 7px;
+      width: 36px;
+      display: none; }
+    #bookshelf .topbar div.logo {
+      float: left;
+      line-height: 49px; }
+      #bookshelf .topbar div.logo img {
+        width: 175px;
+        height: 33px;
+        margin-top: 9px;
+        margin-right: 20px; }
+        @media screen and (max-width: 666px) {
+          #bookshelf .topbar div.logo img {
+            width: 122px;
+            height: 22px;
+            margin-top: 15px; } }
+    #bookshelf .topbar .malform {
+      float: right;
+      margin-top: 11px;
+      font-size: 14px;
+      padding-left: 25px;
+      color: #09788b; }
+      @media screen and (max-width: 666px) {
+        #bookshelf .topbar .malform {
+          margin-top: -2px; } }
+      #bookshelf .topbar .malform > * {
+        float: left;
+        margin-top: 5px;
+        width: 100px;
+        height: 20px;
+        cursor: pointer;
+        background: url(../images/radio.svg) no-repeat;
+        -ms-background-position-x: -40px; }
+        #bookshelf .topbar .malform > * svg {
+          fill: #09788b; }
+        #bookshelf .topbar .malform > *.selected {
+          background: url(../images/radio_selected.svg) no-repeat;
+          -ms-background-position-x: -40px; }
+    #bookshelf .topbar .btn-publisherTermsInfo {
+      position: absolute;
+      cursor: pointer;
+      background-image: url(../images/leser_ikoner/leser_ikoner_samtykke.svg);
+      padding: 20px;
+      padding-right: 25px;
+      top: 0px;
+      right: 0;
+      margin-top: 5px;
+      -moz-animation: leaflet-usermarker-pulsate 2.0s linear infinite;
+      -webkit-animation: leaflet-usermarker-pulsate 2.0s linear infinite;
+      animation: leaflet-usermarker-pulsate 2s linear infinite; }
+  #bookshelf .contentBox {
+    flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
+  #bookshelf .contentBox.iframe {
+    background-color: transparent; }
+  #bookshelf .bookshelfLabel {
+    display: inline-block;
+    padding: 20px;
+    margin-left: 32px; }
+    #bookshelf .bookshelfLabel .icon {
+      background-image: url(../images/leser_ikoner/leser_ikoner_bokhylle.svg);
+      height: 25px;
+      width: 25px;
+      float: left;
+      margin-right: 5px;
+      margin-top: 1px;
+      opacity: 0.9; }
+    #bookshelf .bookshelfLabel .label {
+      font-weight: bold;
+      font-size: 20px; }
+  #bookshelf .booklist {
+    margin-top: 20px;
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    justify-content: space-around;
+    flex-flow: row wrap; }
+    #bookshelf .booklist .book {
+      box-sizing: border-box;
+      margin-left: 15px;
+      margin-right: 15px;
+      width: 156px;
+      height: 400px; }
+      @media screen and (max-width: 360px) {
+        #bookshelf .booklist .book {
+          margin-left: 7px;
+          margin-right: 10px;
+          width: 140px;
+          height: 377px; } }
+      @media screen and (min-width: 1440px) {
+        #bookshelf .booklist .book {
+          margin-left: 30px;
+          margin-right: 30px; } }
+      #bookshelf .booklist .book .close-btn {
+        float: right;
+        cursor: pointer;
+        background-image: url(../images/leser_ikoner/leser_ikoner-lukk.svg);
+        width: 30px;
+        height: 30px;
+        opacity: 0.5; }
+      #bookshelf .booklist .book .fagomrade {
+        background-color: black;
+        border-radius: 3px 3px 0px 0px;
+        color: white;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 3px 6px;
+        display: inline-block; }
+        #bookshelf .booklist .book .fagomrade.label-default {
+          background-color: black; }
+        #bookshelf .booklist .book .fagomrade.label-norsk {
+          background-color: #09788b; }
+        #bookshelf .booklist .book .fagomrade.label-realfag {
+          background-color: #499562; }
+        #bookshelf .booklist .book .fagomrade.label-samfunnsfag {
+          background-color: #846F95; }
+        #bookshelf .booklist .book .fagomrade.label-kroppsoving {
+          background-color: #E1B95B;
+          color: black; }
+        #bookshelf .booklist .book .fagomrade.label-sprakfag {
+          background-color: #E29F5A;
+          color: black; }
+      #bookshelf .booklist .book .tittel {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #09788b; }
+      #bookshelf .booklist .book .wrapper {
+        margin-bottom: 10px; }
+        #bookshelf .booklist .book .wrapper .omslag {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          height: 230px; }
+          @media screen and (max-width: 360px) {
+            #bookshelf .booklist .book .wrapper .omslag {
+              height: 210px; } }
+          #bookshelf .booklist .book .wrapper .omslag:after {
+            content: "Åpne boka";
+            position: absolute;
+            top: 90px;
+            left: 20px;
+            bottom: 95px;
+            right: 20px;
+            background: #000000;
+            border-radius: 30px;
+            opacity: 0;
+            text-align: center;
+            line-height: 45px;
+            font-size: 16px;
+            color: #ffffff;
+            transition: opacity .5s ease-out; }
+            @media screen and (max-width: 360px) {
+              #bookshelf .booklist .book .wrapper .omslag:after {
+                top: 75px;
+                bottom: 100px;
+                left: 15px;
+                right: 15px;
+                font-size: 11px;
+                line-height: 35px;
+                border-radius: 20px; } }
+          #bookshelf .booklist .book .wrapper .omslag img {
+            border-bottom: 1px solid white;
+            border-right: 1px solid white;
+            box-shadow: 3px 3px 6px -2px rgba(0, 0, 0, 0.3);
+            width: 156px;
+            transition: opacity .5s ease-out; }
+            @media screen and (max-width: 360px) {
+              #bookshelf .booklist .book .wrapper .omslag img {
+                width: 143px; } }
+        #bookshelf .booklist .book .wrapper .omslag:hover img {
+          opacity: 0.3; }
+        #bookshelf .booklist .book .wrapper .omslag:hover:after {
+          opacity: 1.0; }
+        #bookshelf .booklist .book .wrapper .omslag .progress {
+          display: none;
+          background-color: #e6e7e8;
+          bottom: 20px;
+          border: 1px solid black;
+          height: 10px;
+          margin: 15px 1%;
+          overflow: hidden;
+          position: absolute;
+          width: 140px; }
+          @media screen and (max-width: 360px) {
+            #bookshelf .booklist .book .wrapper .omslag .progress {
+              width: 96px; } }
+          #bookshelf .booklist .book .wrapper .omslag .progress .progress-bar {
+            background-color: #27aae1;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+            color: #fff;
+            float: left;
+            font-size: 12px;
+            height: 100%;
+            line-height: 20px;
+            text-align: center; }
+        #bookshelf .booklist .book .wrapper .statusheader {
+          height: 30px;
+          width: 156px; }
+          #bookshelf .booklist .book .wrapper .statusheader .btn-bokValg {
+            background-color: #09788b;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            float: right;
+            font-size: 90%;
+            line-height: 24px;
+            margin-right: 10px;
+            margin-top: 5px;
+            min-width: 20px;
+            padding: 3px 13px;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 5px;
+            margin-top: 9px;
+            min-width: 15px;
+            padding: 2px 5px;
+            background-color: #000000;
+            margin: 0;
+            height: 24px;
+            min-width: 60px;
+            padding: 0px; }
+            #bookshelf .booklist .book .wrapper .statusheader .btn-bokValg:hover {
+              background-color: #0f5c6a; }
+            #bookshelf .booklist .book .wrapper .statusheader .btn-bokValg:hover {
+              background-color: #000000;
+              opacity: 0.8;
+              text-decoration: underline; }
+          #bookshelf .booklist .book .wrapper .statusheader .icon {
+            float: left;
+            height: 40px;
+            width: 40px;
+            margin-top: -8px;
+            margin-left: -5px; }
+          #bookshelf .booklist .book .wrapper .statusheader .newVersion {
+            float: left;
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #d30202; }
+          @media screen and (max-width: 360px) {
+            #bookshelf .booklist .book .wrapper .statusheader {
+              width: 143px; } }
+      #bookshelf .booklist .book.isDirty .icon {
+        background-image: url(../images/unibok_cloudikon_sync.svg); }
+      #bookshelf .booklist .book.isSyncing .icon {
+        background-image: url(../images/unibok_cloudikon_syncing.svg); }
+      #bookshelf .booklist .book.newVersionAvailable .icon {
+        background-image: url(../images/unibok_cloudikon_downloaded.svg); }
+      #bookshelf .booklist .book.isDownloaded .icon {
+        background-image: url(../images/unibok_cloudikon_downloaded.svg); }
+      #bookshelf .booklist .book.isNotDownloaded .icon {
+        background-image: url(../images/unibok_cloudikon_download.svg); }
+      #bookshelf .booklist .book.isDownloading .icon {
+        background-image: url(../images/unibok_cloudikon_downloading.svg); }
+      #bookshelf .booklist .book.isRemoving .icon {
+        background-image: url(../images/unibok_cloudikon_offline.svg); }
+      #bookshelf .booklist .book.isDownloaded .btn-bokValg .icon,
+      #bookshelf .booklist .book.isDownloading .btn-bokValg .icon,
+      #bookshelf .booklist .book.isDirty .btn-bokValg .icon,
+      #bookshelf .booklist .book.isSyncing .btn-bokValg .icon {
+        width: 30px;
+        height: 30px;
+        top: 3px; }
+      #bookshelf .booklist .book.isDownloading .wrapper .omslag .progress,
+      #bookshelf .booklist .book.isUnpacking .wrapper .omslag .progress {
+        display: block; }
+      #bookshelf .booklist .book .fag {
+        font-size: 0.8em;
+        margin-bottom: 5px; }
+      #bookshelf .booklist .book .trinn, #bookshelf .booklist .book .forlag {
+        font-size: 0.8em; }
+      #bookshelf .booklist .book .debug-tools-button {
+        display: none;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background-image: url(../images/icon-cogwheel.svg);
+        background-size: 100% 100%;
+        width: 20px;
+        height: 20px;
+        opacity: 0.3; }
+      #bookshelf .booklist .book.fakeBook {
+        height: 0px; }
+  #bookshelf .blockingLayer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    opacity: 0.3; }
+
+.publisherTermsBox {
+  position: absolute;
+  top: 90px;
+  right: 19%;
+  bottom: 0px;
+  left: 19%;
+  height: 70%;
+  max-height: 300px;
+  background: #fcfcfc;
+  border-radius: 2px;
+  box-shadow: 2px 2px 6px -2px rgba(0, 0, 0, 0.3);
+  overflow: hidden; }
+  .publisherTermsBox .section {
+    padding: 20px; }
+  .publisherTermsBox .infoBoxSection {
+    position: relative;
+    float: left;
+    padding: 2%;
+    width: 96%;
+    height: 78%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
+    .publisherTermsBox .infoBoxSection iframe {
+      border: none; }
+  @media screen and (max-width: 666px) {
+    .publisherTermsBox {
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+      transform: none; } }
+
+.supportedMessage {
+  position: absolute;
+  top: 90px;
+  right: 20%;
+  left: 20%;
+  max-height: 600px;
+  background: #fcfcfc;
+  border-radius: 2px;
+  box-shadow: 2px 2px 6px -2px rgba(0, 0, 0, 0.3); }
+  @media screen and (max-width: 666px) {
+    .supportedMessage {
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0; } }
+  .supportedMessage .section {
+    position: relative;
+    float: left;
+    padding: 20px; }
+
+.bokvalgBlockinglayer {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px; }
+
+.bokvalgDialog {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  min-height: 320px;
+  max-height: 360px;
+  max-width: 600px;
+  width: 80%;
+  background: #fcfcfc;
+  border-radius: 2px;
+  box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, 0.7); }
+  @media screen and (max-width: 666px) {
+    .bokvalgDialog {
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: 430px;
+      max-width: 100%;
+      transform: none; } }
+  .bokvalgDialog .header .statusIcon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -5px;
+    right: 55px; }
+    .bokvalgDialog .header .statusIcon.isDirty {
+      background-image: url(../images/unibok_cloudikon_sync.svg); }
+    .bokvalgDialog .header .statusIcon.isSyncing {
+      background-image: url(../images/unibok_cloudikon_syncing.svg); }
+    .bokvalgDialog .header .statusIcon.newVersionAvailable {
+      background-image: url(../images/unibok_cloudikon_downloaded.svg); }
+    .bokvalgDialog .header .statusIcon.isDownloaded {
+      background-image: url(../images/unibok_cloudikon_downloaded.svg); }
+    .bokvalgDialog .header .statusIcon.isNotDownloaded {
+      background-image: url(../images/unibok_cloudikon_download.svg); }
+    .bokvalgDialog .header .statusIcon.isDownloading {
+      background-image: url(../images/unibok_cloudikon_downloading.svg); }
+    .bokvalgDialog .header .statusIcon.isRemoving {
+      background-image: url(../images/unibok_cloudikon_offline.svg); }
+  .bokvalgDialog .header .newVersion {
+    color: #d30202;
+    position: absolute;
+    top: 7px;
+    right: 40px;
+    font-size: 12px;
+    font-weight: bold; }
+  .bokvalgDialog .dialogBody {
+    padding: 0px 20px 10px 20px; }
+    .bokvalgDialog .dialogBody .omslag {
+      position: relative;
+      float: right; }
+      .bokvalgDialog .dialogBody .omslag:after {
+        content: "Åpne boka";
+        position: absolute;
+        top: 85px;
+        left: 20px;
+        bottom: 90px;
+        right: 20px;
+        background: #000000;
+        border-radius: 30px;
+        opacity: 0;
+        text-align: center;
+        line-height: 35px;
+        font-size: 16px;
+        color: #ffffff;
+        transition: opacity .5s ease-out; }
+      .bokvalgDialog .dialogBody .omslag:hover:after {
+        opacity: 0.9; }
+    .bokvalgDialog .dialogBody .filesize {
+      padding-bottom: 10px;
+      margin-top: -20px;
+      font-size: 11px; }
+    .bokvalgDialog .dialogBody .bokvalgProgress {
+      background-color: #e6e7e8;
+      border: 1px solid black;
+      bottom: 5px;
+      height: 15px;
+      margin: 0 0 70px 0;
+      overflow: hidden;
+      position: absolute;
+      width: 250px; }
+      @media screen and (max-width: 666px) {
+        .bokvalgDialog .dialogBody .bokvalgProgress {
+          width: 85%; } }
+      .bokvalgDialog .dialogBody .bokvalgProgress .progress-bar {
+        background-color: #09788B;
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+        color: #fff;
+        float: left;
+        font-size: 12px;
+        height: 100%;
+        line-height: 20px;
+        text-align: center; }
+  .bokvalgDialog .footer {
+    padding: 3px 0 0 20px;
+    position: absolute;
+    width: 350px;
+    bottom: 20px; }
+    .bokvalgDialog .footer .btn {
+      background-color: #09788b;
+      border-radius: 3px;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      font-size: 90%;
+      line-height: 24px;
+      margin-right: 10px;
+      margin-top: 5px;
+      min-width: 20px;
+      padding: 3px 13px;
+      text-align: center;
+      background-color: #000000;
+      position: relative;
+      float: left;
+      width: 190px; }
+      .bokvalgDialog .footer .btn:hover {
+        background-color: #0f5c6a; }
+      .bokvalgDialog .footer .btn:hover {
+        background-color: #000000;
+        opacity: 0.7; }
+      .bokvalgDialog .footer .btn.unClickable {
+        cursor: wait;
+        opacity: 0.7; }
+    .bokvalgDialog .footer .infoBtn {
+      float: left;
+      height: 24px;
+      width: 24px;
+      margin-top: 8px;
+      padding-top: 1px;
+      background: url(../images/questionmark.svg) no-repeat; }
+      .bokvalgDialog .footer .infoBtn .info {
+        display: none;
+        position: absolute;
+        right: 10px;
+        width: 200px;
+        font-size: 11px;
+        border-radius: 3px;
+        padding: 4px;
+        background: #000000;
+        color: #FFFFFF; }
+        @media screen and (max-width: 360px) {
+          .bokvalgDialog .footer .infoBtn .info {
+            right: 50px;
+            width: 160px; } }
+    .bokvalgDialog .footer .loadIndicator {
+      float: left;
+      width: 15px;
+      height: 15px;
+      width: 20px;
+      height: 20px;
+      margin-top: 6px;
+      -webkit-animation: rotate 0.6s linear infinite;
+      -moz-animation: rotate 0.6s linear infinite;
+      -ms-animation: rotate 0.6s linear infinite;
+      -o-animation: rotate 0.6s linear infinite;
+      animation: rotate 0.6s linear infinite;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      border-radius: 100%;
+      border-top: 5px solid #545a6a;
+      border-bottom: 5px solid #d4d4db;
+      border-left: 5px solid #545a6a;
+      border-right: 5px solid #d4d4db;
+      content: '';
+      opacity: 0.6; }
+
+/* felles header for dialoger */
+.header {
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #d4d4db;
+  min-height: 30px;
+  padding-left: 5px; }
+  .header .dialogLogo img {
+    width: 122px;
+    height: 22px;
+    margin-top: 4px;
+    margin-left: 4px; }
+  .header .close-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    cursor: pointer;
+    background-image: url(../images/leser_ikoner/leser_ikoner_lukk-smal.svg);
+    opacity: 0.6;
+    width: 26px;
+    height: 26px; }
+
+.offline .isNotDownloaded .statusheader .icon {
+  background-image: url(../images/unibok_cloudikon_offline.svg) !important; }
+
+.offline .isNotDownloaded .statusheader .btn-bokValg {
+  display: none !important; }
+
+a img {
+  border: 0; }
+
+/* TOGGLE KNAPP */
+.offlineFilter {
+  height: 60px;
+  font-size: 12px;
+  overflow: hidden; }
+  .offlineFilter .showAll {
+    width: 50%;
+    position: relative;
+    float: left;
+    display: block;
+    text-align: right;
+    line-height: 30px;
+    padding-right: 10px;
+    margin-top: 15px; }
+    .offlineFilter .showAll .spacer {
+      width: 20px;
+      height: 30px;
+      float: right; }
+  .offlineFilter .showOffline {
+    position: relative;
+    float: left;
+    padding-left: 10px;
+    line-height: 30px;
+    margin-top: 15px; }
+  .offlineFilter .onoffswitch {
+    position: relative;
+    float: left;
+    width: 40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin-top: 20px;
+    margin-left: -20px; }
+  .offlineFilter .onoffswitch-checkbox {
+    display: none; }
+  .offlineFilter .onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 18px;
+    padding: 0;
+    border: 2px solid #09788b;
+    border-radius: 18px;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease-in; }
+  .offlineFilter .onoffswitch-label:before {
+    content: "";
+    display: block;
+    width: 16px;
+    margin: 3px;
+    background: #09788b;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 18px;
+    border-radius: 16px;
+    transition: all 0.3s ease-in 0s; }
+  .offlineFilter .onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #ffffff; }
+  .offlineFilter .onoffswitch-checkbox:checked + .onoffswitch-label, .offlineFilter .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #09788b; }
+  .offlineFilter .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px; }
+
+#login, #confirmLogin, #logout {
+  /* Feidelogo i den løpende teksten */
+  /* Logg inn knappen */
+  /* Retinagrafikk */ }
+  #login body, #confirmLogin body, #logout body {
+    background: url(../images/login/body_bg.png) repeat-x scroll 0 0 #e4e5e6;
+    font-family: 'Open Sans',helvetica,Arial,sans-serif;
+    margin: 0;
+    padding: 0; }
+  #login h1, #confirmLogin h1, #logout h1 {
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 0.67em; }
+  #login p, #login ul, #confirmLogin p, #confirmLogin ul, #logout p, #logout ul {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 1.5em;
+    max-width: 700px; }
+  #login p span.feide, #confirmLogin p span.feide, #logout p span.feide {
+    display: inline-block;
+    background: url(../images/feidelogo_x2.png) no-repeat;
+    background-size: 31px 17px;
+    width: 31px;
+    height: 17px;
+    text-indent: -9999px;
+    margin-left: 3px;
+    position: relative;
+    top: 4px; }
+  #login .page-head, #confirmLogin .page-head, #logout .page-head {
+    background: url(../images/login/header_bg.png) no-repeat left top #238092;
+    height: 70px;
+    margin-bottom: 40px;
+    /* For å gi mellomrom mellom header og innholdet */ }
+  #login .page-head img, #confirmLogin .page-head img, #logout .page-head img {
+    height: 33px;
+    margin-top: 21px;
+    width: 176px; }
+  #login .container, #confirmLogin .container, #logout .container {
+    max-width: 970px;
+    margin: 0 50px; }
+  #login .btn, #confirmLogin .btn, #logout .btn {
+    color: #fff;
+    background-color: #09788b;
+    border: 1px solid #125F6D;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.33;
+    margin-bottom: 0;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none; }
+  #login .btn:hover, #confirmLogin .btn:hover, #logout .btn:hover {
+    background-color: #125F6D; }
+  #login .btn.bokhylle, #confirmLogin .btn.bokhylle, #logout .btn.bokhylle {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #333; }
+  #login .btn.bokhylle:hover, #confirmLogin .btn.bokhylle:hover, #logout .btn.bokhylle:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+  #login .btn.bokhylle span.bokikon, #confirmLogin .btn.bokhylle span.bokikon, #logout .btn.bokhylle span.bokikon {
+    display: inline-block;
+    background: url(../images/bokikon.png) no-repeat;
+    width: 20px;
+    height: 18px;
+    margin-right: 7px;
+    position: relative;
+    top: 1px; }
+  #login .btn.logout, #confirmLogin .btn.logout, #logout .btn.logout {
+    margin-right: 10px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #login .btn.bokhylle span.bokikon, #confirmLogin .btn.bokhylle span.bokikon, #logout .btn.bokhylle span.bokikon {
+      background-image: url(../images/bokikon_x2.png);
+      background-size: 18px 20px; } }
+
+#login {
+  height: 100%;
+  background-color: #ccc; }
+  #login .loginDialogBox {
+    position: relative;
+    width: 400px;
+    margin: auto;
+    top: 50px; }
+  #login .userlist {
+    display: table;
+    border-collapse: collapse;
+    width: 400px;
+    background-color: white;
+    border: 1px solid gray; }
+    #login .userlist .userItem {
+      display: table-row;
+      border-bottom: 1px solid gray;
+      cursor: pointer; }
+      #login .userlist .userItem:last-child {
+        border-bottom: none; }
+      #login .userlist .userItem:hover {
+        background-color: #eee; }
+      #login .userlist .userItem > * {
+        padding: 10px;
+        display: table-cell; }
+
+#errorview {
+  position: relative;
+  height: 100%; }
+  #errorview .toptopbar {
+    background-color: #2d2f31;
+    height: 20px;
+    color: white;
+    font-size: 12px; }
+    #errorview .toptopbar .leftSide {
+      float: left; }
+      #errorview .toptopbar .leftSide > * {
+        float: left;
+        padding: 0px 10px 0px 10px;
+        border-right: 1px solid gray;
+        line-height: 20px;
+        cursor: pointer; }
+    #errorview .toptopbar .rightSide {
+      float: right; }
+      #errorview .toptopbar .rightSide > * {
+        float: left;
+        padding: 0px 10px 0px 10px;
+        line-height: 20px; }
+      #errorview .toptopbar .rightSide .loginInfo {
+        color: #aaa;
+        font-size: 10px; }
+      #errorview .toptopbar .rightSide .btn-logout {
+        border-left: 1px solid gray;
+        cursor: pointer; }
+  #errorview .topbar {
+    height: 60px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    background: #09788b url(../images/header_bg.png) no-repeat; }
+    #errorview .topbar .logo {
+      float: left;
+      line-height: 60px;
+      padding-left: 20px; }
+      #errorview .topbar .logo img {
+        width: 171px;
+        height: 33px;
+        margin-top: 13px;
+        margin-right: 20px; }
+    #errorview .topbar .malform {
+      float: right;
+      margin-top: 16px;
+      margin-right: 16px;
+      font-size: 12px; }
+      #errorview .topbar .malform > * {
+        float: left;
+        padding: 6px;
+        cursor: pointer;
+        background-color: white; }
+        #errorview .topbar .malform > *.selected {
+          background-color: #9ec9d0; }
+        #errorview .topbar .malform > *:first-child {
+          border-radius: 4px 0px 0px 4px;
+          border-right: none; }
+        #errorview .topbar .malform > *:last-child {
+          border-radius: 0px 4px 4px 0px; }
+    #errorview .topbar .btn-systemInfo {
+      cursor: pointer;
+      background-image: url(../images/leser_ikoner/leser_ikoner_hjelp-white.svg);
+      float: right;
+      padding: 20px;
+      margin-top: 10px;
+      margin-right: 10px; }
+  #errorview .contentBox {
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow-y: scroll;
+    background-color: #e3e5e8; }
+  #errorview .contentBox.iframe {
+    top: 0px;
+    background-color: transparent; }
+  #errorview .errorLabel {
+    display: inline-block;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 20px; }
+  #errorview .content {
+    padding: 10px;
+    overflow: hidden; }
+  #errorview .header {
+    position: relative;
+    float: left;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e5e5e5; }
+    #errorview .header h1 {
+      padding-left: 20px; }
+  #errorview .section {
+    position: relative;
+    float: left;
+    padding: 20px; }
+
+.mobileApp #reader #enterBookmarkPanel, .offlineApp #reader #enterBookmarkPanel {
+  right: 20px; }
+  .mobileApp #reader #enterBookmarkPanel .funnel, .offlineApp #reader #enterBookmarkPanel .funnel {
+    left: 175px; }
+
+body.incognitoMode #reader .topbar #itemContainer .itemList #goto-bookshelf-btn {
+  display: none; }
+
+body.anonymousUser #reader .topbar #itemContainer .itemList #goto-bookshelf-btn .icon,
+body.anonymousUser #reader .topbar #itemContainer .itemList #list-bookmarks-btn .icon,
+body.anonymousUser #reader .topbar #itemContainer .itemList #list-markings-btn .icon,
+body.anonymousUser #reader .topbar #itemContainer .itemList #annotation-widget-btn .icon,
+body.anonymousUser #reader .topbar #itemContainer .itemList #bookmark-btn .icon {
+  opacity: 0.3;
+  cursor: not-allowed; }
+
+body.anonymousUser #reader .topbar #itemContainer .itemList #goto-bookshelf-btn .icon {
+  background-image: url(../images/feide_login.svg); }
+
+body.ie11 #reader .topbar #itemContainer .itemList #layoutStylePanel {
+  right: 100px !important; }
+
+/* In scroll-layout we are positioning the .topbar and .bottombar on top of the contentBox
+   when the .topbar and .bottombar the epub can use the full screen
+   The content is not hidden when the .topbar and .bottombar is visible because we add padding to the html */
+#reader.layout-scroll div.contentBox {
+  bottom: 0px;
+  top: 0px; }
+
+#reader .panelBox {
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition-property: top, bottom;
+  -moz-transition-property: top, bottom;
+  -o-transition-property: top, bottom;
+  transition-property: top, bottom; }
+
+#reader {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  /*
+        In scroll-layout, the next and previous-buttons are positioned on the top left and bottom right
+        In singlepage and doublepage layout, the buttons are full height on the left and right of the contentbox
+     */
+  /*
+    &.annotation-state-waiting, &.annotation-state-ready.has-selection, &.annotation-state-editing {
+        #annotation-widget-btn {
+            background-color: $panelTopColor;
+            border-right-color: $panelTopColor;
+        }
+    }*/ }
+  #reader.hideMenus:not(.displayPanelOnTopOfContent) div.panelBox {
+    top: 20px;
+    bottom: 0px; }
+  #reader.hideMenus.displayPanelOnTopOfContent div.panelBox {
+    left: -351px; }
+    @media screen and (max-width: 1024px) {
+      #reader.hideMenus.displayPanelOnTopOfContent div.panelBox {
+        left: -101vw; } }
+  #reader .topbar {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: auto;
+    height: 69px;
+    position: relative;
+    top: 0px;
+    border-bottom: 1px solid #c3c3c3;
+    background-color: #f1f1f1; }
+    #reader .topbar .topbarHeader {
+      flex: 1 100%;
+      -webkit-flex: 1 100%;
+      -ms-flex: 1 100%;
+      top: 0px;
+      border-right: 0px;
+      right: 0px;
+      height: 20px;
+      font-size: 10px;
+      line-height: 20px;
+      background-color: #09788b;
+      color: #fff;
+      text-align: center; }
+      #reader .topbar .topbarHeader.hideMenus {
+        top: 55px;
+        left: 0px;
+        right: 0px;
+        position: absolute;
+        height: 35px;
+        background: white;
+        color: transparent;
+        border-bottom: 1px solid #c3c3c3;
+        background-image: url(../images/leser_ikoner/leser_ikoner_chevron.svg);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position-x: calc(50vw - 20px);
+        background-position-y: 4px;
+        cursor: pointer; }
+    #reader .topbar .errorMessage {
+      display: none;
+      position: absolute;
+      top: 80px;
+      left: calc(50% - 150px);
+      height: 40px;
+      width: 300px;
+      padding: 10px;
+      text-align: center;
+      background-color: #fcfcfc;
+      border-radius: 5px;
+      -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75); }
+    #reader .topbar #shimmyLeft-btn.item, #reader .topbar #shimmyRight-btn.item {
+      width: 49px;
+      display: none;
+      position: absolute;
+      top: 20px; }
+      #reader .topbar #shimmyLeft-btn.item .icon, #reader .topbar #shimmyRight-btn.item .icon {
+        background-image: url(../images/leser_ikoner/leser_ikoner_ellipse.svg);
+        display: block;
+        height: 49px;
+        width: 49px;
+        background-size: 32px 32px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: #f1f1f1;
+        opacity: 0.8; }
+    #reader .topbar #shimmyLeft-btn.item {
+      border-right: 1px solid #c3c3c3;
+      left: 0; }
+    #reader .topbar #shimmyRight-btn.item {
+      border-left: 1px solid #c3c3c3;
+      right: 0; }
+    #reader .topbar #itemContainer {
+      width: 100%;
+      position: absolute;
+      top: 20px;
+      left: 0; }
+      @media screen and (max-width: 666px) {
+        #reader .topbar #itemContainer {
+          overflow: hidden; } }
+      #reader .topbar #itemContainer .itemList {
+        display: flex; }
+        @media screen and (max-width: 666px) {
+          #reader .topbar #itemContainer .itemList {
+            min-width: 610px;
+            float: left; } }
+        #reader .topbar #itemContainer .itemList .item {
+          position: relative;
+          display: block;
+          float: left;
+          cursor: pointer;
+          border-right: 1px solid #c3c3c3;
+          height: 49px;
+          width: 50px;
+          box-sizing: border-box; }
+          #reader .topbar #itemContainer .itemList .item.dialogActive {
+            background-color: #d9d9d9;
+            border-right-color: #d9d9d9; }
+          #reader .topbar #itemContainer .itemList .item:last-child {
+            border-right: 0px; }
+          #reader .topbar #itemContainer .itemList .item .icon {
+            display: block;
+            height: 49px;
+            width: 49px;
+            background-size: 32px 32px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            opacity: 0.8; }
+          #reader .topbar #itemContainer .itemList .item:hover .icon {
+            opacity: 1; }
+        #reader .topbar #itemContainer .itemList #goto-bookshelf-btn .icon {
+          background-image: url(../images/unibok_logo_phat.svg);
+          background-size: 32px 26px; }
+        #reader .topbar #itemContainer .itemList #resources-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_resources.svg);
+          opacity: 0.2;
+          cursor: not-allowed; }
+        #reader .topbar #itemContainer .itemList #table-of-contents-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_toc.svg); }
+        #reader .topbar #itemContainer .itemList #list-bookmarks-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_mine_bokmerker.svg);
+          opacity: 0.2;
+          cursor: not-allowed; }
+        #reader .topbar #itemContainer .itemList #list-markings-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_mine_notater.svg);
+          opacity: 0.2;
+          cursor: not-allowed; }
+        #reader .topbar #itemContainer .itemList #search-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_sok.svg); }
+        #reader .topbar #itemContainer .itemList #goBack-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_go-back.svg);
+          background-size: 40px;
+          opacity: 0.2;
+          cursor: not-allowed; }
+        #reader .topbar #itemContainer .itemList #resources-btn .icon.active,
+        #reader .topbar #itemContainer .itemList #list-bookmarks-btn .icon.active,
+        #reader .topbar #itemContainer .itemList #list-markings-btn .icon.active,
+        #reader .topbar #itemContainer .itemList #goBack-btn .icon.active {
+          opacity: 0.8;
+          cursor: pointer; }
+        #reader .topbar #itemContainer .itemList #layout-btn {
+          position: relative;
+          width: 72px; }
+          @media screen and (max-width: 666px) {
+            #reader .topbar #itemContainer .itemList #layout-btn {
+              display: none; } }
+          #reader .topbar #itemContainer .itemList #layout-btn .icon {
+            width: 72px;
+            background-size: 40px 40px, 28px 28px;
+            background-position: 10px center, 45px center;
+            background-repeat: no-repeat; }
+        #reader .topbar #itemContainer .itemList #debug-btn {
+          display: none; }
+          #reader .topbar #itemContainer .itemList #debug-btn .icon {
+            background-image: url(../images/leser_ikoner/leser_ikoner_bug.svg); }
+        #reader .topbar #itemContainer .itemList #inc-fontsize-btn, #reader .topbar #itemContainer .itemList #dec-fontsize-btn {
+          width: 50px; }
+          #reader .topbar #itemContainer .itemList #inc-fontsize-btn .icon, #reader .topbar #itemContainer .itemList #dec-fontsize-btn .icon {
+            box-sizing: border-box;
+            display: block;
+            height: 32px;
+            width: 32px;
+            background-size: 28px 28px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border: 1px solid #c3c3c3;
+            background-color: #f9f9f9;
+            margin-top: 10px; }
+        #reader .topbar #itemContainer .itemList #dec-fontsize-btn {
+          border-right: none; }
+          #reader .topbar #itemContainer .itemList #dec-fontsize-btn .icon {
+            background-image: url(../images/leser_ikoner/leser_ikoner_decrease.svg);
+            float: right;
+            border-right: 1px solid #c3c3c3;
+            border-radius: 4px 0px 0px 4px; }
+        #reader .topbar #itemContainer .itemList #inc-fontsize-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_increase.svg);
+          float: left;
+          border-left: none;
+          border-radius: 0px 4px 4px 0px; }
+        #reader .topbar #itemContainer .itemList #lingit-widget-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_tekst_til_lyd.svg);
+          opacity: 0.2; }
+        #reader .topbar #itemContainer .itemList #annotation-widget-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_lag_notat.svg);
+          opacity: 0.2; }
+        #reader .topbar #itemContainer .itemList #lingit-widget-btn .icon.active, #reader .topbar #itemContainer .itemList #annotation-widget-btn .icon.active {
+          opacity: 0.8; }
+        #reader .topbar #itemContainer .itemList #bookmark-btn .icon {
+          background-image: url(../images/leser_ikoner/leser_ikoner_lag_bokmerke.svg); }
+        #reader .topbar #itemContainer .itemList #locationInfo {
+          height: 49px;
+          cursor: default;
+          flex-grow: 1;
+          -webkit-flex: 1 1;
+          -ms-flex: 1 1;
+          padding: 0px 10px;
+          font-weight: bold;
+          font-size: 16px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          line-height: 49px;
+          overflow: hidden;
+          text-align: center;
+          color: #777; }
+          @media screen and (max-width: 700px) {
+            #reader .topbar #itemContainer .itemList #locationInfo {
+              display: none; } }
+        #reader .topbar #itemContainer .itemList .cloudStatus {
+          position: relative; }
+          #reader .topbar #itemContainer .itemList .cloudStatus .isUnpackingMsg {
+            font-size: 10px;
+            padding: 6px 1px 1px 2px;
+            height: 25px;
+            line-height: 120%;
+            width: 90%;
+            display: none;
+            text-align: center; }
+          #reader .topbar #itemContainer .itemList .cloudStatus .progress {
+            display: none;
+            position: absolute;
+            background-color: #c3c3c3;
+            border-radius: 10px;
+            bottom: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+            height: 8px;
+            margin: 0 8%;
+            overflow: hidden;
+            width: 84%; }
+            #reader .topbar #itemContainer .itemList .cloudStatus .progress .progress-bar {
+              background-color: #27aae1;
+              box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+              color: #fff;
+              height: 100%;
+              width: 0; }
+  @media screen and (max-width: 666px) {
+    #reader .topbar {
+      height: 69px; }
+      #reader .topbar #locationInfoPlaceholder {
+        display: block;
+        flex-grow: 1;
+        -webkit-flex: 1 1;
+        -ms-flex: 1 1; }
+    #reader div.panelBox {
+      top: 69px; }
+    #reader #enterBookmarkPanel {
+      top: 86px; }
+    #reader .dialog-annotations.editing {
+      top: 69px; } }
+  #reader.has-visibleBookmark .topbar #itemContainer .itemList #bookmark-btn.item .icon {
+    background-image: url(../images/leser_ikoner/leser_ikoner_lag_bokmerke-aktiv.svg);
+    opacity: 1;
+    background-size: 44px 44px; }
+  #reader.just-createdBookmark .topbar #itemContainer .itemList #bookmark-btn.item .icon {
+    background-image: url(../images/leser_ikoner/leser_ikoner_lag_bokmerke-aktiv.svg);
+    opacity: 1;
+    background-size: 44px 44px; }
+  #reader.isDownloaded .cloudStatus .icon {
+    background-image: url(../images/unibok_cloudikon_downloaded.svg);
+    background-size: 40px 40px; }
+  #reader.isNotDownloaded .cloudStatus .icon {
+    background-image: url(../images/unibok_cloudikon_download.svg);
+    background-size: 40px 40px; }
+  #reader.newVersionAvailable .cloudStatus .icon {
+    background-image: url(../images/unibok_cloudikon_newversion.svg);
+    background-size: 40px 40px; }
+  #reader.isDownloading .cloudStatus .icon {
+    background-image: url(../images/unibok_cloudikon_downloading.svg);
+    height: 40px !important;
+    background-size: 34px 34px; }
+  #reader.isRemoving .cloudStatus .icon {
+    background-image: url(../images/unibok_cloudikon_offline.svg);
+    background-size: 40px 40px; }
+  #reader.isDirty .cloudStatus .icon {
+    background-image: url(../images/unibok_cloudikon_sync.svg); }
+  #reader.isSyncing .cloudStatus .icon {
+    background-image: url(../images/unibok_cloudikon_syncing.svg); }
+  #reader.isUnpacking .cloudStatus .icon {
+    display: none; }
+  #reader.isUnpacking .topbar #itemContainer .itemList .cloudStatus.item .progress,
+  #reader.isDownloading .topbar #itemContainer .itemList .cloudStatus.item .progress {
+    display: block; }
+  #reader.isUnpacking .topbar #itemContainer .itemList .cloudStatus .isUnpackingMsg {
+    display: block; }
+  #reader .blockingLayer {
+    background: #222;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  #reader #inc-fontsize-btn.disabled, #reader #dec-fontsize-btn.disabled {
+    opacity: 0.2; }
+  #reader #previous-page-btn.disabled, #reader #next-page-btn.disabled {
+    transition: opacity 1s;
+    opacity: 0.0; }
+  #reader.layout-singlepage #layout-btn .icon {
+    background-image: url(../images/leser_ikoner/leser_ikoner_enspalte.svg), url(../images/leser_ikoner/leser_ikoner-arrow.svg); }
+  #reader.layout-doublepage #layout-btn .icon {
+    background-image: url(../images/leser_ikoner/leser_ikoner_tospalte.svg), url(../images/leser_ikoner/leser_ikoner-arrow.svg); }
+  #reader.layout-scroll #layout-btn .icon {
+    background-image: url(../images/leser_ikoner/leser_ikoner_scroll.svg), url(../images/leser_ikoner/leser_ikoner-arrow.svg); }
+  #reader .audioWrapper {
+    position: absolute;
+    top: 610px;
+    height: 40px;
+    border-top: 1px solid #c3c3c3;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    left: 0px;
+    right: 0px;
+    display: none; }
+    #reader .audioWrapper.show-panel {
+      left: 351px;
+      padding: 0 35px; }
+    #reader .audioWrapper .audioBtn-collapse {
+      background-image: url(../images/leser_ikoner/leser_ikoner_collapse.svg);
+      width: 25px;
+      height: 25px;
+      background-position: center center;
+      background-size: 26px 26px;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 7px;
+      left: 0px;
+      display: block;
+      cursor: pointer;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease; }
+    #reader .audioWrapper #audioPlayer {
+      width: 80vw;
+      margin: 2px auto;
+      overflow: hidden; }
+    #reader .audioWrapper .audioBtn-close {
+      background-image: url(../images/leser_ikoner/leser_ikoner-lukk-white.svg);
+      width: 30px;
+      height: 40px;
+      background-position: center center;
+      background-size: 26px 26px;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: block;
+      cursor: pointer; }
+  #reader .karaokeOverlay {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    height: 100px;
+    background: rgba(241, 241, 241, 0.9);
+    text-align: center;
+    font-size: 18px;
+    border-top: 1px solid #c3c3c3;
+    overflow: scroll; }
+    #reader .karaokeOverlay .Word {
+      display: inline-block; }
+    #reader .karaokeOverlay .markWord {
+      background-color: palevioletred; }
+  #reader .bottombar {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-top: 1px solid #c3c3c3;
+    background-color: whitesmoke; }
+    #reader .bottombar .textualIndicators {
+      position: relative;
+      margin-top: 5px;
+      height: 16px;
+      color: gray;
+      font-size: 13px; }
+      #reader .bottombar .textualIndicators .chapterLabel {
+        text-align: center; }
+      #reader .bottombar .textualIndicators .firstPageNumber,
+      #reader .bottombar .textualIndicators .lastPageNumber {
+        position: absolute;
+        font-weight: bold;
+        width: 42px;
+        top: -19px; }
+      #reader .bottombar .textualIndicators .firstPageNumber {
+        left: 0px;
+        text-align: right; }
+      #reader .bottombar .textualIndicators .lastPageNumber {
+        right: 0px;
+        text-align: left; }
+    #reader .bottombar .progressbar {
+      height: 9px;
+      background-color: #d7d7d7;
+      margin-top: 10px;
+      margin-left: 55px;
+      margin-right: 55px;
+      border-top: 1px solid #afafaf; }
+      #reader .bottombar .progressbar .progressFill {
+        height: 10px;
+        margin-top: -1px;
+        background-color: #9ec9d0;
+        width: 0%;
+        transition: width 0.3s; }
+        #reader .bottombar .progressbar .progressFill .knob {
+          display: none;
+          position: relative;
+          float: right;
+          width: 12px;
+          height: 14px;
+          background-color: #787878;
+          margin-top: -2px;
+          margin-right: -6px; }
+          #reader .bottombar .progressbar .progressFill .knob .decoration {
+            height: 10px;
+            width: 2px;
+            background-color: white;
+            float: left;
+            margin-top: 2px; }
+            #reader .bottombar .progressbar .progressFill .knob .decoration.bar1 {
+              margin-left: 3px; }
+            #reader .bottombar .progressbar .progressFill .knob .decoration.bar2 {
+              margin-left: 2px; }
+          #reader .bottombar .progressbar .progressFill .knob > .hitArea {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: -10px;
+            left: -20px;
+            z-index: 2; }
+          #reader .bottombar .progressbar .progressFill .knob.dragging > .hitArea {
+            position: fixed;
+            width: auto;
+            height: auto;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px; }
+          #reader .bottombar .progressbar .progressFill .knob > .pagePreviewBox {
+            display: none;
+            position: fixed;
+            width: 200px;
+            margin-left: -100px;
+            box-sizing: border-box;
+            bottom: 60px;
+            left: 50%;
+            border: 1px solid green;
+            background-color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center; }
+          #reader .bottombar .progressbar .progressFill .knob.dragging > .pagePreviewBox {
+            display: block; }
+      #reader .bottombar .progressbar.dragging .progressFill {
+        transition: none; }
+  #reader div.panelBox {
+    position: absolute;
+    top: 70px;
+    left: -351px;
+    bottom: 0px;
+    width: 349px;
+    border-right: 1px solid #c3c3c3;
+    -webkit-overflow-scrolling: touch; }
+  #reader.displayPanelOnTopOfContent .panelBox {
+    left: -101vw;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition-property: top, bottom, left;
+    -moz-transition-property: top, bottom, left;
+    -o-transition-property: top, bottom, left;
+    transition-property: top, bottom, left; }
+    @media screen and (max-width: 666px) {
+      #reader.displayPanelOnTopOfContent .panelBox {
+        width: 100vw; } }
+  #reader.show-panel div.panelBox {
+    left: 0px; }
+  #reader.show-panel div.contentBox {
+    left: 351px; }
+  #reader.show-panel .bottombar {
+    left: 351px; }
+  #reader.show-panel.displayPanelOnTopOfContent div.contentBox {
+    left: 0px; }
+  #reader.show-panel.displayPanelOnTopOfContent .bottombar {
+    left: 0px; }
+  #reader.show-panel.displayPanelOnTopOfContent div.panelBox {
+    bottom: 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
+  #reader .panel {
+    display: none; }
+  #reader.show-tocPanel #table-of-contents-btn {
+    background-color: #d9d9d9;
+    height: 50px;
+    border-right-color: #d9d9d9; }
+  #reader.show-tocPanel .tocPanel {
+    display: block; }
+  #reader.show-resourcesPanel #resources-btn {
+    background-color: #d9d9d9;
+    height: 50px;
+    border-right-color: #d9d9d9; }
+  #reader.show-resourcesPanel .resourcesPanel {
+    display: block; }
+  #reader.show-bookmarksPanel #list-bookmarks-btn {
+    background-color: #d9d9d9;
+    height: 50px;
+    border-right-color: #d9d9d9; }
+  #reader.show-bookmarksPanel .bookmarksPanel {
+    display: block; }
+  #reader.show-annotationsPanel #list-markings-btn {
+    background-color: #d9d9d9;
+    height: 50px;
+    border-right-color: #d9d9d9; }
+  #reader.show-annotationsPanel .annotationsPanel {
+    display: block; }
+  #reader.show-searchPanel #search-btn {
+    background-color: #d9d9d9;
+    height: 50px;
+    border-right-color: #d9d9d9; }
+  #reader.show-searchPanel .searchPanel {
+    display: block; }
+  #reader.layout-scroll .contentBox #previous-page-btn, #reader.layout-scroll .contentBox #next-page-btn {
+    width: 34px;
+    height: 34px; }
+  #reader.layout-scroll .contentBox #previous-page-btn {
+    top: 78px;
+    left: 10px; }
+  #reader.layout-scroll .contentBox #next-page-btn {
+    bottom: 60px;
+    right: 20px; }
+  #reader.layout-singlepage #previous-page-btn, #reader.layout-singlepage #next-page-btn, #reader.layout-doublepage #previous-page-btn, #reader.layout-doublepage #next-page-btn {
+    top: 0px;
+    bottom: 0px;
+    width: 50px; }
+  #reader.layout-singlepage #next-page-btn, #reader.layout-doublepage #next-page-btn {
+    right: 0px; }
+  #reader.layout-singlepage #previous-page-btn, #reader.layout-doublepage #previous-page-btn {
+    left: 0px; }
+  #reader div.contentBox {
+    position: absolute;
+    top: 79px;
+    left: 0px;
+    right: 0px;
+    bottom: 60px; }
+    #reader div.contentBox #previous-page-btn, #reader div.contentBox #next-page-btn {
+      position: absolute;
+      cursor: pointer;
+      background-size: 34px 34px;
+      background-repeat: no-repeat;
+      background-position: center center; }
+    #reader div.contentBox #previous-page-btn {
+      background-image: url(../images/leser_ikoner/leser_ikoner_left.svg);
+      background-size: 35px; }
+    #reader div.contentBox #next-page-btn {
+      background-image: url(../images/leser_ikoner/leser_ikoner_right.svg);
+      background-size: 35px; }
+  #reader #epub-reader-container {
+    margin: 0 50px;
+    height: 100%; }
+    #reader #epub-reader-container .reflowable-book-frame {
+      height: 100%; }
+      #reader #epub-reader-container .reflowable-book-frame .reflowable-content-frame {
+        height: 100%; }
+    #reader #epub-reader-container iframe {
+      border: none;
+      height: 100%;
+      /* Hack EB-1160 because of iOS and iFrames
+             * This is equivalent to width:100% but makes tables stay inside viewport
+             * */
+      width: 1px;
+      min-width: 100%; }
+  #reader #layoutStylePanel {
+    position: absolute;
+    box-sizing: border-box;
+    width: 176px;
+    background-color: #FCFCFC;
+    top: 69px;
+    right: 150px;
+    border: 1px solid #c3c3c3;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    border-radius: 5px;
+    display: none; }
+    #reader #layoutStylePanel > .layoutchoice {
+      display: block;
+      height: 40px; }
+      #reader #layoutStylePanel > .layoutchoice .icon {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 32px 32px;
+        display: block;
+        width: 50px;
+        height: 40px;
+        float: left; }
+      #reader #layoutStylePanel > .layoutchoice .label {
+        line-height: 40px;
+        margin-left: 50px; }
+      #reader #layoutStylePanel > .layoutchoice.disabled {
+        cursor: default; }
+        #reader #layoutStylePanel > .layoutchoice.disabled .icon, #reader #layoutStylePanel > .layoutchoice.disabled .label {
+          opacity: 0.2; }
+    #reader #layoutStylePanel .btn-layout-singlepage,
+    #reader #layoutStylePanel .btn-layout-doublepage {
+      border-bottom: 1px solid #c3c3c3; }
+    #reader #layoutStylePanel .btn-layout-singlepage .icon {
+      background-image: url(../images/leser_ikoner/leser_ikoner_enspalte.svg); }
+    #reader #layoutStylePanel .btn-layout-doublepage .icon {
+      background-image: url(../images/leser_ikoner/leser_ikoner_tospalte.svg);
+      background-size: 42px 32px; }
+    #reader #layoutStylePanel .btn-layout-scroll .icon {
+      background-image: url(../images/leser_ikoner/leser_ikoner_scroll.svg); }
+    #reader #layoutStylePanel .funnel {
+      position: absolute;
+      left: 70px;
+      top: -19px;
+      width: 38px;
+      height: 19px;
+      overflow: hidden; }
+    #reader #layoutStylePanel .funnelDiamond {
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #c3c3c3;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background: #fcfcfc; }
+  #reader.show-layout-panel #layoutStylePanel {
+    display: block; }
+  #reader.show-layout-panel #layout-btn {
+    background-color: #d9d9d9;
+    border-right-color: #d9d9d9; }
+  #reader.layout-singlepage #layoutStylePanel .btn-layout-singlepage .selectionIndicator,
+  #reader.layout-doublepage #layoutStylePanel .btn-layout-doublepage .selectionIndicator,
+  #reader.layout-scroll #layoutStylePanel .btn-layout-scroll .selectionIndicator {
+    display: block; }
+  #reader #enterBookmarkPanel {
+    position: absolute;
+    right: 38px;
+    width: 250px;
+    height: 100px;
+    top: 86px;
+    background-color: #fcfcfc;
+    border: 1px solid #c3c3c3;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    border-radius: 5px;
+    display: none; }
+    #reader #enterBookmarkPanel input {
+      box-sizing: border-box;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid #c3c3c3;
+      margin: 10px;
+      width: 92%;
+      background-size: 18px 18px;
+      background-repeat: no-repeat;
+      background-position: 4px center;
+      outline: none;
+      float: left;
+      height: 30px;
+      font-size: 14px; }
+    #reader #enterBookmarkPanel .btn-create {
+      background-color: #09788b;
+      border-radius: 3px;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      font-size: 90%;
+      line-height: 24px;
+      margin-right: 10px;
+      margin-top: 5px;
+      min-width: 20px;
+      padding: 3px 13px;
+      text-align: center; }
+      #reader #enterBookmarkPanel .btn-create:hover {
+        background-color: #0f5c6a; }
+    #reader #enterBookmarkPanel .btn-remove {
+      position: relative;
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: url(../images/leser_ikoner/leser_ikoner_trash.svg) no-repeat;
+      background-size: 16px 19px;
+      margin: 10px;
+      cursor: pointer; }
+    #reader #enterBookmarkPanel .confirmationDialog {
+      position: absolute;
+      display: none;
+      left: 25%; }
+    #reader #enterBookmarkPanel.confirmation .btn-create {
+      display: none; }
+    #reader #enterBookmarkPanel.confirmation .btn-remove {
+      cursor: auto;
+      background: transparent; }
+    #reader #enterBookmarkPanel.confirmation .btn-remove:after {
+      content: 'Slette?';
+      line-height: 20px; }
+    #reader #enterBookmarkPanel.confirmation .confirmationDialog {
+      display: block;
+      position: absolute;
+      bottom: 17px;
+      left: 117px; }
+      #reader #enterBookmarkPanel.confirmation .confirmationDialog .btn-cancel, #reader #enterBookmarkPanel.confirmation .confirmationDialog .btn-confirm {
+        background-color: #09788b;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        font-size: 90%;
+        line-height: 24px;
+        margin-right: 10px;
+        margin-top: 5px;
+        min-width: 20px;
+        padding: 3px 13px;
+        text-align: center;
+        float: left; }
+        #reader #enterBookmarkPanel.confirmation .confirmationDialog .btn-cancel:hover, #reader #enterBookmarkPanel.confirmation .confirmationDialog .btn-confirm:hover {
+          background-color: #0f5c6a; }
+      #reader #enterBookmarkPanel.confirmation .confirmationDialog .btn-confirm {
+        margin-left: 15px; }
+    #reader #enterBookmarkPanel .funnel {
+      position: absolute;
+      left: 191px;
+      top: -19px;
+      width: 38px;
+      height: 19px;
+      overflow: hidden; }
+    #reader #enterBookmarkPanel .funnelDiamond {
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #c3c3c3;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background: #fcfcfc; }
+  #reader.show-enterBookmark-panel #enterBookmarkPanel {
+    display: block; }
+  #reader.show-enterBookmark-panel #bookmark-btn {
+    height: 50px;
+    background-color: #d9d9d9;
+    border-right-color: #d9d9d9; }
+  #reader.xlayout-scroll div.contentBox #epub-reader-container {
+    margin-left: 0px;
+    margin-right: 0px; }
+  #reader.xlayout-scroll #previous-page-btn {
+    left: 0px; }
+  #reader.xlayout-scroll #next-page-btn {
+    right: 0px; }
+  #reader .panel {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px; }
+    #reader .panel > .head {
+      background-color: #d9d9d9;
+      border-bottom: 1px solid #c3c3c3;
+      height: 44px; }
+      #reader .panel > .head .label {
+        font-weight: bold;
+        color: #585858;
+        padding: 0px 10px 0px 10px;
+        line-height: 44px;
+        cursor: default; }
+        #reader .panel > .head .label.tab {
+          padding: 13px;
+          width: 100px; }
+          #reader .panel > .head .label.tab.active {
+            background-color: #f1f1f1;
+            padding-bottom: 14px;
+            border: 1px solid #c3c3c3;
+            border-bottom: 0px;
+            cursor: default; }
+      #reader .panel > .head .btn-close {
+        background-image: url(../images/leser_ikoner/leser_ikoner_lukk-smal.svg);
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        background-position: center center;
+        background-size: 26px 26px;
+        background-repeat: no-repeat;
+        opacity: 0.6;
+        top: 0px;
+        right: 0px;
+        display: block;
+        cursor: pointer; }
+    #reader .panel > .content, #reader .panel > .resources {
+      position: absolute;
+      top: 45px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      overflow-y: scroll;
+      word-wrap: break-word;
+      background-color: #f9f9f9; }
+  #reader .tocPanel > .head .gotoPageCont {
+    display: none; }
+  #reader .tocPanel .content .bookpart {
+    color: #585858; }
+    #reader .tocPanel .content .bookpart .bookpartTitle {
+      display: flex;
+      position: relative;
+      border-bottom: 1px solid white;
+      cursor: pointer;
+      font-weight: bold; }
+      #reader .tocPanel .content .bookpart .bookpartTitle .toggleExpandIcon {
+        display: block;
+        margin-top: 2px;
+        width: 36px;
+        height: 36px;
+        background-image: url(../images/leser_ikoner/leser_ikoner-arrow.svg);
+        background-size: 36px 36px;
+        background-position: center center;
+        opacity: 0.6; }
+        #reader .tocPanel .content .bookpart .bookpartTitle .toggleExpandIcon.placeholder {
+          background-image: none; }
+      #reader .tocPanel .content .bookpart .bookpartTitle .label {
+        flex: 1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 4px;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap; }
+      #reader .tocPanel .content .bookpart .bookpartTitle .pageNumber {
+        width: 40px;
+        text-align: right;
+        padding-right: 15px;
+        padding-top: 10px; }
+      #reader .tocPanel .content .bookpart .bookpartTitle:hover {
+        background: #f1f1f1; }
+        #reader .tocPanel .content .bookpart .bookpartTitle:hover > .label {
+          text-decoration: underline; }
+    #reader .tocPanel .content .bookpart.collapsed .bookpartTitle .toggleExpandIcon {
+      background-image: url(../images/leser_ikoner/leser_ikoner-arrow-right.svg); }
+      #reader .tocPanel .content .bookpart.collapsed .bookpartTitle .toggleExpandIcon.placeholder {
+        background-image: none; }
+    #reader .tocPanel .content .bookpart.collapsed .bookmark, #reader .tocPanel .content .bookpart.collapsed .annotation, #reader .tocPanel .content .bookpart.collapsed .searchResultItem, #reader .tocPanel .content .bookpart.collapsed .bookpart {
+      display: none; }
+  #reader .tocPanel .content .bookpart .bookpartTitle > .toggleExpand.placeholder {
+    pointer-events: none; }
+  #reader .tocPanel .content .bookpart.activeChapter {
+    background: #f1f1f1; }
+  #reader .tocPanel .content .bookpart .bookpart .bookpartTitle {
+    font-weight: normal; }
+  #reader .tocPanel .content .bookpart .bookpart > .bookpartTitle > .toggleExpand {
+    padding-left: 23px; }
+  #reader .tocPanel .content .bookpart .bookpart > .bookpart > .bookpartTitle > .toggleExpand {
+    padding-left: 46px; }
+  #reader .tocPanel .content .bookpart .bookpart > .bookpart > .bookpart > .bookpartTitle > .toggleExpand {
+    padding-left: 69px; }
+  #reader .tocPanel.has-physicalPageNumbers > .head {
+    height: 88px; }
+    #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont {
+      display: block;
+      height: 44px;
+      background-color: #f1f1f1;
+      box-sizing: border-box;
+      padding-top: 11px;
+      color: #585858;
+      line-height: 22px; }
+      #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont .gotoPage-label {
+        float: left;
+        font-weight: bold;
+        margin: 0px 10px 0px 10px; }
+      #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont input {
+        float: left;
+        outline: none;
+        border: 1px solid #c3c3c3;
+        height: 24px;
+        border-radius: 3px;
+        width: 76px;
+        font: inherit;
+        color: gray;
+        line-height: normal;
+        box-sizing: border-box;
+        margin: -1px 10px 0px 0px;
+        padding: 0px 10px 2px 10px; }
+        #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont input.notAValidPageNumber {
+          color: #C7254E; }
+      #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont .pageCount {
+        margin-left: 6px; }
+      #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont .btn-gotoPage {
+        background-color: #09788b;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        font-size: 90%;
+        line-height: 24px;
+        margin-right: 10px;
+        margin-top: 5px;
+        min-width: 20px;
+        padding: 3px 13px;
+        text-align: center;
+        margin-top: -4px; }
+        #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont .btn-gotoPage:hover {
+          background-color: #0f5c6a; }
+      #reader .tocPanel.has-physicalPageNumbers > .head .gotoPageCont .btn-gotoPage.notAValidPageNumber {
+        background-color: #cecdcd;
+        color: #666;
+        cursor: not-allowed; }
+  #reader .tocPanel.has-physicalPageNumbers > .content {
+    top: 89px; }
+  #reader .tocPanel #nonExistingPageNumPopup {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 95px;
+    background-color: #fcfcfc;
+    border: 1px solid #c3c3c3;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    border-radius: 5px;
+    display: none; }
+    #reader .tocPanel #nonExistingPageNumPopup.show-nonExistingPageNumPopup#nonExistingPageNumPopup {
+      display: block; }
+    #reader .tocPanel #nonExistingPageNumPopup .nonExistingPageNumPopupText {
+      padding: 5px;
+      color: #C7254E; }
+    #reader .tocPanel #nonExistingPageNumPopup .funnel {
+      position: absolute;
+      left: 20px;
+      top: -19px;
+      width: 38px;
+      height: 19px;
+      overflow: hidden; }
+    #reader .tocPanel #nonExistingPageNumPopup .funnelDiamond {
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #c3c3c3;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background: #fcfcfc; }
+  #reader .resourcesPanel .tabHeader {
+    background-color: #f1f1f1;
+    box-sizing: border-box;
+    padding: 15px;
+    border-bottom: 1px solid #c3c3c3;
+    color: #585858;
+    line-height: 22px;
+    width: 349px;
+    position: fixed;
+    height: 43px; }
+    @media screen and (max-width: 666px) {
+      #reader .resourcesPanel .tabHeader {
+        width: 100vw; } }
+    #reader .resourcesPanel .tabHeader .resourceTab {
+      float: left;
+      padding: 3px 15px;
+      cursor: pointer; }
+      #reader .resourcesPanel .tabHeader .resourceTab.selected {
+        border: 1px solid #c3c3c3;
+        border-bottom: 1px solid #f9f9f9;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        background-color: #f9f9f9; }
+      #reader .resourcesPanel .tabHeader .resourceTab:hover {
+        text-decoration: underline; }
+  #reader .resourcesPanel .content {
+    top: 88px;
+    background: #f9f9f9; }
+    #reader .resourcesPanel .content .resource {
+      border-bottom: 1px solid white;
+      cursor: pointer; }
+      #reader .resourcesPanel .content .resource:hover {
+        background: #f1f1f1; }
+      #reader .resourcesPanel .content .resource .label {
+        height: 40px;
+        margin-left: 10px; }
+        #reader .resourcesPanel .content .resource .label:hover {
+          text-decoration: underline; }
+        #reader .resourcesPanel .content .resource .label .icon {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          background: url(../images/leser_ikoner/leser_ikoner_resource_play.svg) no-repeat;
+          background-size: 20px;
+          background-position: 5px 10px;
+          padding: 5px; }
+          #reader .resourcesPanel .content .resource .label .icon:hover {
+            background-image: url(../images/leser_ikoner/leser_ikoner_resource_play_hover.svg); }
+        #reader .resourcesPanel .content .resource .label .icon.playing {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          background: url(../images/leser_ikoner/leser_ikoner_resource_pause.svg) no-repeat;
+          background-size: 20px;
+          background-position: 5px 10px;
+          padding: 5px; }
+          #reader .resourcesPanel .content .resource .label .icon.playing:hover {
+            background-image: url(../images/leser_ikoner/leser_ikoner_resource_pause.svg); }
+        #reader .resourcesPanel .content .resource .label .title {
+          margin-left: 37px;
+          line-height: 40px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          line-height: 40px;
+          white-space: nowrap;
+          padding-right: 10px; }
+    #reader .resourcesPanel .content .bookpart {
+      color: #585858; }
+      #reader .resourcesPanel .content .bookpart .bookpartTitle {
+        display: flex;
+        position: relative;
+        border-bottom: 1px solid white;
+        cursor: pointer;
+        font-weight: bold; }
+        #reader .resourcesPanel .content .bookpart .bookpartTitle .toggleExpandIcon {
+          display: block;
+          margin-top: 2px;
+          width: 36px;
+          height: 36px;
+          background-image: url(../images/leser_ikoner/leser_ikoner-arrow.svg);
+          background-size: 36px 36px;
+          background-position: center center;
+          opacity: 0.6; }
+          #reader .resourcesPanel .content .bookpart .bookpartTitle .toggleExpandIcon.placeholder {
+            background-image: none; }
+        #reader .resourcesPanel .content .bookpart .bookpartTitle .label {
+          flex: 1;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-right: 4px;
+          text-overflow: ellipsis;
+          overflow-x: hidden;
+          white-space: nowrap; }
+        #reader .resourcesPanel .content .bookpart .bookpartTitle .pageNumber {
+          width: 40px;
+          text-align: right;
+          padding-right: 15px;
+          padding-top: 10px; }
+        #reader .resourcesPanel .content .bookpart .bookpartTitle:hover {
+          background: #f1f1f1; }
+          #reader .resourcesPanel .content .bookpart .bookpartTitle:hover > .label {
+            text-decoration: underline; }
+      #reader .resourcesPanel .content .bookpart.collapsed .bookpartTitle .toggleExpandIcon {
+        background-image: url(../images/leser_ikoner/leser_ikoner-arrow-right.svg); }
+        #reader .resourcesPanel .content .bookpart.collapsed .bookpartTitle .toggleExpandIcon.placeholder {
+          background-image: none; }
+      #reader .resourcesPanel .content .bookpart.collapsed .bookmark, #reader .resourcesPanel .content .bookpart.collapsed .annotation, #reader .resourcesPanel .content .bookpart.collapsed .searchResultItem, #reader .resourcesPanel .content .bookpart.collapsed .bookpart {
+        display: none; }
+    #reader .resourcesPanel .content .tab {
+      display: none; }
+      #reader .resourcesPanel .content .tab.lyder {
+        display: block; }
+    #reader .resourcesPanel .content .bookpart > .resource .label {
+      padding-left: 23px; }
+    #reader .resourcesPanel .content .bookpart .bookpart .bookpartTitle {
+      font-weight: normal; }
+    #reader .resourcesPanel .content .bookpart .bookpart > .bookpartTitle > .toggleExpand {
+      padding-left: 23px; }
+    #reader .resourcesPanel .content .bookpart .bookpart > .resource .label {
+      padding-left: 46px; }
+    #reader .resourcesPanel .content .bookpart .bookpart > .bookpart > .bookpartTitle > .toggleExpand {
+      padding-left: 46px; }
+    #reader .resourcesPanel .content .bookpart .bookpart > .bookpart > .resource .label {
+      padding-left: 69px; }
+    #reader .resourcesPanel .content .bookpart .bookpart > .bookpart > .bookpart > .bookpartTitle > .toggleExpand {
+      padding-left: 69px; }
+    #reader .resourcesPanel .content .bookpart .bookpart > .bookpart > .bookpart > .resource .label {
+      padding-left: 92px; }
+    #reader .resourcesPanel .content .bookpart.collapsed > .resource {
+      display: none; }
+  #reader .exportDialog {
+    display: none;
+    position: absolute;
+    border: 1px solid rgba(65, 65, 65, 0.7);
+    top: 39px;
+    left: 271px;
+    margin: auto;
+    width: 77px;
+    background-color: #f1f1f1;
+    text-align: center;
+    line-height: 25px; }
+    @media screen and (max-width: 666px) {
+      #reader .exportDialog {
+        width: 76px;
+        left: calc(100% - 78px); } }
+    #reader .exportDialog .btn-PDF, #reader .exportDialog .btn-DOCX {
+      display: block;
+      cursor: pointer; }
+      #reader .exportDialog .btn-PDF:hover, #reader .exportDialog .btn-DOCX:hover {
+        background-color: #d9d9d9; }
+    #reader .exportDialog .btn-PDF {
+      border-bottom: 1px solid #c3c3c3; }
+  #reader .annotationsPanel .head .btn-export {
+    height: 32px;
+    width: 32px;
+    background: url(../images/leser_ikoner/leser_ikoner_export2.svg) no-repeat;
+    background-size: 32px 32px;
+    position: absolute;
+    top: -2px;
+    right: 44px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 2px;
+    opacity: 0.7; }
+    #reader .annotationsPanel .head .btn-export:hover {
+      opacity: 1; }
+  #reader .annotationsPanel .bookpart {
+    color: #585858; }
+    #reader .annotationsPanel .bookpart .bookpartTitle {
+      display: flex;
+      position: relative;
+      border-bottom: 1px solid white;
+      cursor: pointer;
+      font-weight: bold; }
+      #reader .annotationsPanel .bookpart .bookpartTitle .toggleExpandIcon {
+        display: block;
+        margin-top: 2px;
+        width: 36px;
+        height: 36px;
+        background-image: url(../images/leser_ikoner/leser_ikoner-arrow.svg);
+        background-size: 36px 36px;
+        background-position: center center;
+        opacity: 0.6; }
+        #reader .annotationsPanel .bookpart .bookpartTitle .toggleExpandIcon.placeholder {
+          background-image: none; }
+      #reader .annotationsPanel .bookpart .bookpartTitle .label {
+        flex: 1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 4px;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap; }
+      #reader .annotationsPanel .bookpart .bookpartTitle .pageNumber {
+        width: 40px;
+        text-align: right;
+        padding-right: 15px;
+        padding-top: 10px; }
+      #reader .annotationsPanel .bookpart .bookpartTitle:hover {
+        background: #f1f1f1; }
+        #reader .annotationsPanel .bookpart .bookpartTitle:hover > .label {
+          text-decoration: underline; }
+    #reader .annotationsPanel .bookpart.collapsed .bookpartTitle .toggleExpandIcon {
+      background-image: url(../images/leser_ikoner/leser_ikoner-arrow-right.svg); }
+      #reader .annotationsPanel .bookpart.collapsed .bookpartTitle .toggleExpandIcon.placeholder {
+        background-image: none; }
+    #reader .annotationsPanel .bookpart.collapsed .bookmark, #reader .annotationsPanel .bookpart.collapsed .annotation, #reader .annotationsPanel .bookpart.collapsed .searchResultItem, #reader .annotationsPanel .bookpart.collapsed .bookpart {
+      display: none; }
+  #reader .annotationsPanel .annotation {
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    border-bottom: 1px solid white;
+    color: #585858; }
+    #reader .annotationsPanel .annotation .content {
+      padding: 5px;
+      width: 85%; }
+      #reader .annotationsPanel .annotation .content .meta {
+        position: relative;
+        display: block;
+        clear: both; }
+        #reader .annotationsPanel .annotation .content .meta .date {
+          float: left; }
+        #reader .annotationsPanel .annotation .content .meta .physicalPageNumber {
+          float: right; }
+      #reader .annotationsPanel .annotation .content .data {
+        position: relative;
+        display: block;
+        clear: both;
+        text-align: justify;
+        padding-top: 10px;
+        cursor: pointer; }
+        #reader .annotationsPanel .annotation .content .data:hover {
+          background: #f1f1f1;
+          box-shadow: 1px 1px 1px 1px #c3c3c3; }
+        #reader .annotationsPanel .annotation .content .data .markedText {
+          border-radius: 4px; }
+      #reader .annotationsPanel .annotation .content .comment {
+        margin-top: 5px;
+        font-weight: bold;
+        border-top: 1px solid #c3c3c3; }
+    #reader .annotationsPanel .annotation .controls {
+      padding: 5px;
+      width: 8%; }
+      #reader .annotationsPanel .annotation .controls .btn-delete {
+        position: relative;
+        float: left;
+        width: 35px;
+        height: 35px;
+        background-image: url(../images/icons/trash.svg);
+        background-size: 35px 35px;
+        background-position: center center; }
+      #reader .annotationsPanel .annotation .controls .btn-invalid {
+        float: left;
+        width: 34px;
+        height: 34px;
+        background-image: url(../images/leser_ikoner/leser_ikoner_warning.svg);
+        background-size: 26px 26px;
+        background-position: center center; }
+      #reader .annotationsPanel .annotation .controls .confirmationDialog {
+        display: none; }
+    #reader .annotationsPanel .annotation.confirmation .btn-delete {
+      display: none; }
+    #reader .annotationsPanel .annotation.confirmation .btn-invalid {
+      display: none; }
+    #reader .annotationsPanel .annotation.confirmation .controls {
+      width: 15%;
+      background: #f0f0f0;
+      border-right: 1px solid #c3c3c3; }
+    #reader .annotationsPanel .annotation.confirmation .confirmationDialog {
+      display: block; }
+      #reader .annotationsPanel .annotation.confirmation .confirmationDialog .deleteLabel {
+        line-height: 20px;
+        margin-left: 3px; }
+      #reader .annotationsPanel .annotation.confirmation .confirmationDialog .btn-cancel, #reader .annotationsPanel .annotation.confirmation .confirmationDialog .btn-confirm {
+        background-color: #09788b;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        font-size: 90%;
+        line-height: 24px;
+        margin-right: 10px;
+        margin-top: 5px;
+        min-width: 20px;
+        padding: 3px 13px;
+        text-align: center;
+        float: left; }
+        #reader .annotationsPanel .annotation.confirmation .confirmationDialog .btn-cancel:hover, #reader .annotationsPanel .annotation.confirmation .confirmationDialog .btn-confirm:hover {
+          background-color: #0f5c6a; }
+    #reader .annotationsPanel .annotation.confirmation .content {
+      width: 84%; }
+  #reader .annotationsPanel [data-colorid="1"] .markedText {
+    background-color: rgba(237, 239, 133, 0.5); }
+  #reader .annotationsPanel [data-colorid="2"] .markedText {
+    background-color: rgba(187, 220, 174, 0.5); }
+  #reader .annotationsPanel [data-colorid="3"] .markedText {
+    background-color: rgba(165, 219, 235, 0.5); }
+  #reader .annotationsPanel [data-colorid="4"] .markedText {
+    background-color: rgba(247, 148, 148, 0.4); }
+  #reader .annotationsPanel .annotation svg {
+    vertical-align: -0.15em !important;
+    margin-left: -1em !important; }
+  #reader .annotationsPanel .annotation .mjx-char {
+    font-size: 2ex !important; }
+  #reader .annotationsPanel .annotation .mjx-chtml {
+    display: inline-block;
+    line-height: 0;
+    text-indent: 0;
+    text-align: left;
+    text-transform: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100%;
+    font-size-adjust: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    word-spacing: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    max-width: none;
+    max-height: none;
+    min-width: 0;
+    min-height: 0;
+    border: 0;
+    margin: 0;
+    padding: 1px 0; }
+  #reader .annotationsPanel .annotation .MJXc-display {
+    display: block;
+    text-align: center;
+    margin: 1em 0;
+    padding: 0; }
+  #reader .annotationsPanel .annotation .mjx-chtml[tabindex]:focus, #reader .annotationsPanel .annotation body :focus .mjx-chtml[tabindex] {
+    display: inline-table; }
+  #reader .annotationsPanel .annotation .mjx-full-width {
+    text-align: center;
+    display: table-cell !important;
+    width: 10000em; }
+  #reader .annotationsPanel .annotation .mjx-math {
+    display: inline-block;
+    border-collapse: separate;
+    border-spacing: 0; }
+  #reader .annotationsPanel .annotation .mjx-math * {
+    display: inline-block;
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    text-align: left; }
+  #reader .annotationsPanel .annotation .mjx-numerator {
+    display: block;
+    text-align: center; }
+  #reader .annotationsPanel .annotation .mjx-denominator {
+    display: block;
+    text-align: center; }
+  #reader .annotationsPanel .annotation .MJXc-stacked {
+    height: 0;
+    position: relative; }
+  #reader .annotationsPanel .annotation .MJXc-stacked > * {
+    position: absolute; }
+  #reader .annotationsPanel .annotation .MJXc-bevelled > * {
+    display: inline-block; }
+  #reader .annotationsPanel .annotation .mjx-stack {
+    display: inline-block; }
+  #reader .annotationsPanel .annotation .mjx-op {
+    display: block; }
+  #reader .annotationsPanel .annotation .mjx-under {
+    display: table-cell; }
+  #reader .annotationsPanel .annotation .mjx-over {
+    display: block; }
+  #reader .annotationsPanel .annotation .mjx-over > * {
+    padding-left: 0px !important;
+    padding-right: 0px !important; }
+  #reader .annotationsPanel .annotation .mjx-under > * {
+    padding-left: 0px !important;
+    padding-right: 0px !important; }
+  #reader .annotationsPanel .annotation .mjx-stack > .mjx-sup {
+    display: block; }
+  #reader .annotationsPanel .annotation .mjx-stack > .mjx-sub {
+    display: block; }
+  #reader .annotationsPanel .annotation .mjx-prestack > .mjx-presup {
+    display: block; }
+  #reader .annotationsPanel .annotation .mjx-prestack > .mjx-presub {
+    display: block; }
+  #reader .annotationsPanel .annotation .mjx-delim-h > .mjx-char {
+    display: inline-block; }
+  #reader .annotationsPanel .annotation .mjx-surd {
+    vertical-align: top; }
+  #reader .annotationsPanel .annotation .mjx-mphantom * {
+    visibility: hidden; }
+  #reader .annotationsPanel .annotation .mjx-merror {
+    background-color: #FFFF88;
+    color: #CC0000;
+    border: 1px solid #CC0000;
+    padding: 2px 3px;
+    font-style: normal;
+    font-size: 90%; }
+  #reader .annotationsPanel .annotation .mjx-annotation-xml {
+    line-height: normal; }
+  #reader .annotationsPanel .annotation .mjx-menclose > svg {
+    fill: none;
+    stroke: currentColor; }
+  #reader .annotationsPanel .annotation .mjx-mtr {
+    display: table-row; }
+  #reader .annotationsPanel .annotation .mjx-mlabeledtr {
+    display: table-row; }
+  #reader .annotationsPanel .annotation .mjx-mtd {
+    display: table-cell;
+    text-align: center; }
+  #reader .annotationsPanel .annotation .mjx-label {
+    display: table-row; }
+  #reader .annotationsPanel .annotation .mjx-box {
+    display: inline-block; }
+  #reader .annotationsPanel .annotation .mjx-block {
+    display: block; }
+  #reader .annotationsPanel .annotation .mjx-span {
+    display: inline; }
+  #reader .annotationsPanel .annotation .mjx-char {
+    display: block;
+    white-space: pre; }
+  #reader .annotationsPanel .annotation .mjx-itable {
+    display: inline-table;
+    width: auto; }
+  #reader .annotationsPanel .annotation .mjx-row {
+    display: table-row; }
+  #reader .annotationsPanel .annotation .mjx-cell {
+    display: table-cell; }
+  #reader .annotationsPanel .annotation .mjx-table {
+    display: table;
+    width: 100%; }
+  #reader .annotationsPanel .annotation .mjx-line {
+    display: block;
+    height: 0; }
+  #reader .annotationsPanel .annotation .mjx-strut {
+    width: 0;
+    padding-top: 1em; }
+  #reader .annotationsPanel .annotation .mjx-vsize {
+    width: 0; }
+  #reader .annotationsPanel .annotation .MJXc-space1 {
+    margin-left: .167em; }
+  #reader .annotationsPanel .annotation .MJXc-space2 {
+    margin-left: .222em; }
+  #reader .annotationsPanel .annotation .MJXc-space3 {
+    margin-left: .278em; }
+  #reader .annotationsPanel .annotation .mjx-ex-box-test {
+    position: absolute;
+    width: 1px;
+    height: 60ex; }
+  #reader .annotationsPanel .annotation .mjx-line-box-test {
+    display: table !important; }
+  #reader .annotationsPanel .annotation .mjx-line-box-test span {
+    display: table-cell !important;
+    width: 10000em !important;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+    border: 0;
+    margin: 0; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-unknown-R {
+    font-family: monospace;
+    font-style: normal;
+    font-weight: normal; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-unknown-I {
+    font-family: monospace;
+    font-style: italic;
+    font-weight: normal; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-unknown-B {
+    font-family: monospace;
+    font-style: normal;
+    font-weight: bold; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-unknown-BI {
+    font-family: monospace;
+    font-style: italic;
+    font-weight: bold; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-ams-R {
+    font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-cal-B {
+    font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-frak-R {
+    font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-frak-B {
+    font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-math-BI {
+    font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-sans-R {
+    font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-sans-B {
+    font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-sans-I {
+    font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-script-R {
+    font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-type-R {
+    font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-cal-R {
+    font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-main-B {
+    font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-main-I {
+    font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-main-R {
+    font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-math-I {
+    font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-size1-R {
+    font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-size2-R {
+    font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-size3-R {
+    font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw; }
+  #reader .annotationsPanel .annotation .MJXc-TeX-size4-R {
+    font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw; }
+  #reader .bookmarksPanel .bookpart {
+    color: #585858; }
+    #reader .bookmarksPanel .bookpart .bookpartTitle {
+      display: flex;
+      position: relative;
+      border-bottom: 1px solid white;
+      cursor: pointer;
+      font-weight: bold; }
+      #reader .bookmarksPanel .bookpart .bookpartTitle .toggleExpandIcon {
+        display: block;
+        margin-top: 2px;
+        width: 36px;
+        height: 36px;
+        background-image: url(../images/leser_ikoner/leser_ikoner-arrow.svg);
+        background-size: 36px 36px;
+        background-position: center center;
+        opacity: 0.6; }
+        #reader .bookmarksPanel .bookpart .bookpartTitle .toggleExpandIcon.placeholder {
+          background-image: none; }
+      #reader .bookmarksPanel .bookpart .bookpartTitle .label {
+        flex: 1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 4px;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap; }
+      #reader .bookmarksPanel .bookpart .bookpartTitle .pageNumber {
+        width: 40px;
+        text-align: right;
+        padding-right: 15px;
+        padding-top: 10px; }
+      #reader .bookmarksPanel .bookpart .bookpartTitle:hover {
+        background: #f1f1f1; }
+        #reader .bookmarksPanel .bookpart .bookpartTitle:hover > .label {
+          text-decoration: underline; }
+    #reader .bookmarksPanel .bookpart.collapsed .bookpartTitle .toggleExpandIcon {
+      background-image: url(../images/leser_ikoner/leser_ikoner-arrow-right.svg); }
+      #reader .bookmarksPanel .bookpart.collapsed .bookpartTitle .toggleExpandIcon.placeholder {
+        background-image: none; }
+    #reader .bookmarksPanel .bookpart.collapsed .bookmark, #reader .bookmarksPanel .bookpart.collapsed .annotation, #reader .bookmarksPanel .bookpart.collapsed .searchResultItem, #reader .bookmarksPanel .bookpart.collapsed .bookpart {
+      display: none; }
+  #reader .bookmarksPanel .bookpart
+.bookmark {
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    color: #585858; }
+    #reader .bookmarksPanel .bookpart
+.bookmark:hover {
+      background: #f1f1f1; }
+      #reader .bookmarksPanel .bookpart
+.bookmark:hover .label {
+        text-decoration: underline; }
+    #reader .bookmarksPanel .bookpart
+.bookmark .label {
+      flex: 1;
+      margin: 10px 0px; }
+    #reader .bookmarksPanel .bookpart
+.bookmark .physicalPageNumber {
+      margin: 10px 15px; }
+    #reader .bookmarksPanel .bookpart
+.bookmark .btn-delete {
+      padding-left: 10px;
+      position: relative;
+      float: left;
+      width: 35px;
+      height: 39px;
+      background-image: url(../images/icons/trash.svg);
+      background-size: 35px 35px;
+      background-position: center center; }
+    #reader .bookmarksPanel .bookpart
+.bookmark .btn-invalid {
+      padding-left: 10px;
+      width: 32px;
+      height: 32px;
+      background-image: url(../images/leser_ikoner/leser_ikoner_warning.svg);
+      background-size: 26px 26px;
+      background-position: center center; }
+    #reader .bookmarksPanel .bookpart
+.bookmark .confirmationDialog {
+      display: none;
+      overflow: hidden;
+      margin-right: 10px; }
+    #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .btn-delete {
+      display: none; }
+    #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .btn-invalid {
+      display: none; }
+    #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .label {
+      width: 55%; }
+    #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .confirmationDialog {
+      background: #f0f0f0;
+      display: block;
+      width: 15%;
+      padding: 5px;
+      border-right: 1px solid #c3c3c3;
+      text-align: center; }
+      #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .confirmationDialog .deleteLabel {
+        line-height: 20px;
+        margin-left: 3px; }
+      #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .confirmationDialog .btn-cancel, #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .confirmationDialog .btn-confirm {
+        background-color: #09788b;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        font-size: 90%;
+        line-height: 24px;
+        margin-right: 10px;
+        margin-top: 5px;
+        min-width: 20px;
+        padding: 3px 13px;
+        text-align: center;
+        margin-right: inherit;
+        float: none; }
+        #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .confirmationDialog .btn-cancel:hover, #reader .bookmarksPanel .bookpart
+.bookmark.confirmation .confirmationDialog .btn-confirm:hover {
+          background-color: #0f5c6a; }
+  #reader .searchPanel > .head {
+    height: 124px; }
+    #reader .searchPanel > .head .searchCont {
+      height: 80px;
+      clear: both;
+      background-color: #f1f1f1;
+      box-sizing: border-box;
+      border-top: 1px solid #c3c3c3;
+      color: #585858;
+      line-height: 22px;
+      padding: 16px 10px 0px 16px; }
+      #reader .searchPanel > .head .searchCont input {
+        box-sizing: border-box;
+        padding: 7px;
+        padding-left: 40px;
+        border-radius: 3px 0px 0px 3px;
+        border: 1px solid #c3c3c3;
+        border-right: none;
+        margin: 0px;
+        width: calc(100% - 48px);
+        background-image: url(../images/leser_ikoner/leser_ikoner_sok.svg);
+        background-repeat: no-repeat;
+        background-position: 4px center;
+        -ms-background-position-x: -110px;
+        font: 14px 'Open Sans', Helvetica, Arial, sans-serif;
+        color: #585858;
+        outline: none;
+        float: left;
+        height: 30px; }
+      #reader .searchPanel > .head .searchCont .btn-search {
+        background-color: #09788b;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        font-size: 90%;
+        line-height: 24px;
+        margin-right: 10px;
+        margin-top: 5px;
+        min-width: 20px;
+        padding: 3px 13px;
+        text-align: center;
+        margin-right: 0px;
+        margin-top: 0px;
+        float: left;
+        border-radius: 0px 3px 3px 0px; }
+        #reader .searchPanel > .head .searchCont .btn-search:hover {
+          background-color: #0f5c6a; }
+      #reader .searchPanel > .head .searchCont .label-searchResults {
+        float: left;
+        font-weight: bold;
+        margin-top: 10px; }
+      #reader .searchPanel > .head .searchCont .count {
+        float: right;
+        margin-top: 10px;
+        color: #585858; }
+    #reader .searchPanel > .head .xxlabel {
+      display: inline-block;
+      float: left; }
+  #reader .searchPanel > .content {
+    top: 125px; }
+    #reader .searchPanel > .content .results {
+      position: absolute;
+      top: 51px;
+      bottom: 5px;
+      overflow-y: scroll;
+      right: 5px;
+      left: 5px; }
+  #reader .searchPanel .gotoPageResultItem {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    padding: 10px 5px 10px 25px;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    color: #585858; }
+    #reader .searchPanel .gotoPageResultItem.selected {
+      background-color: #f1f1f1; }
+    #reader .searchPanel .gotoPageResultItem:hover {
+      background-color: #f1f1f1;
+      text-decoration: underline; }
+    #reader .searchPanel .gotoPageResultItem .resultText {
+      width: 83%; }
+      #reader .searchPanel .gotoPageResultItem .resultText .pageNum {
+        background-color: yellow; }
+  #reader .searchPanel .bookpart {
+    color: #585858; }
+    #reader .searchPanel .bookpart .bookpartTitle {
+      display: flex;
+      position: relative;
+      border-bottom: 1px solid white;
+      cursor: pointer;
+      font-weight: bold; }
+      #reader .searchPanel .bookpart .bookpartTitle .toggleExpandIcon {
+        display: block;
+        margin-top: 2px;
+        width: 36px;
+        height: 36px;
+        background-image: url(../images/leser_ikoner/leser_ikoner-arrow.svg);
+        background-size: 36px 36px;
+        background-position: center center;
+        opacity: 0.6; }
+        #reader .searchPanel .bookpart .bookpartTitle .toggleExpandIcon.placeholder {
+          background-image: none; }
+      #reader .searchPanel .bookpart .bookpartTitle .label {
+        flex: 1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 4px;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap; }
+      #reader .searchPanel .bookpart .bookpartTitle .pageNumber {
+        width: 40px;
+        text-align: right;
+        padding-right: 15px;
+        padding-top: 10px; }
+      #reader .searchPanel .bookpart .bookpartTitle:hover {
+        background: #f1f1f1; }
+        #reader .searchPanel .bookpart .bookpartTitle:hover > .label {
+          text-decoration: underline; }
+    #reader .searchPanel .bookpart.collapsed .bookpartTitle .toggleExpandIcon {
+      background-image: url(../images/leser_ikoner/leser_ikoner-arrow-right.svg); }
+      #reader .searchPanel .bookpart.collapsed .bookpartTitle .toggleExpandIcon.placeholder {
+        background-image: none; }
+    #reader .searchPanel .bookpart.collapsed .bookmark, #reader .searchPanel .bookpart.collapsed .annotation, #reader .searchPanel .bookpart.collapsed .searchResultItem, #reader .searchPanel .bookpart.collapsed .bookpart {
+      display: none; }
+  #reader .searchPanel .searchResultItem {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    padding: 15px 15px 15px 25px;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    color: #585858; }
+    #reader .searchPanel .searchResultItem.selected {
+      background-color: #f1f1f1; }
+    #reader .searchPanel .searchResultItem .resultText {
+      width: 83%; }
+      #reader .searchPanel .searchResultItem .resultText .markedText {
+        background-color: yellow; }
+    #reader .searchPanel .searchResultItem .physicalPageNumber {
+      margin-left: auto; }
+    #reader .searchPanel .searchResultItem:hover {
+      background-color: #f1f1f1; }
+      #reader .searchPanel .searchResultItem:hover .resultText {
+        text-decoration: underline; }
+  #reader.show-annotationDialog .dialog-annotations {
+    display: block; }
+  #reader.show-lingitDialog .dialog-lingit {
+    display: block; }
+
+body.ie11 .dialog-annotations {
+  right: 20px !important; }
+
+.dialog-annotations {
+  display: none;
+  position: absolute;
+  right: 70px;
+  top: 86px;
+  width: 300px;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75); }
+  .dialog-annotations > * {
+    display: none; }
+  .dialog-annotations > .funnel {
+    display: block; }
+  .dialog-annotations .buttonbar {
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 4px; }
+  .dialog-annotations .colors > * {
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    cursor: pointer; }
+    .dialog-annotations .colors > * .icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50px;
+      -webkit-box-shadow: inset -1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow: inset -1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: inset -1px 1px 5px 0px rgba(50, 50, 50, 0.75); }
+  .dialog-annotations .color-1 .icon {
+    background-color: #EDEF85; }
+  .dialog-annotations .color-2 .icon {
+    background-color: #BBDCAE; }
+  .dialog-annotations .color-3 .icon {
+    background-color: #A5DBEB; }
+  .dialog-annotations .color-4 .icon {
+    background-color: #F79494; }
+  .dialog-annotations .colors > .active .icon {
+    box-shadow: inset 0px 0px 0px 0px black, 0px 0px 2px 1px black; }
+  .dialog-annotations .funnel {
+    position: absolute;
+    overflow: hidden; }
+  .dialog-annotations .funnelDiamond {
+    position: absolute;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    border: 1px solid #c3c3c3;
+    border-radius: 3px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #fcfcfc; }
+
+#reader.show-annotationDialog.noSelect .dialog-annotations {
+  display: block; }
+  #reader.show-annotationDialog.noSelect .dialog-annotations > * {
+    display: none; }
+  #reader.show-annotationDialog.noSelect .dialog-annotations .waitSelectionMessage {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    width: 172px;
+    margin: 10px auto; }
+  @media screen and (max-width: 666px) {
+    #reader.show-annotationDialog.noSelect .dialog-annotations {
+      width: 150px;
+      height: 120px; }
+      #reader.show-annotationDialog.noSelect .dialog-annotations .colors > * {
+        padding: 5px; }
+      #reader.show-annotationDialog.noSelect .dialog-annotations .waitSelectionMessage {
+        width: 100%;
+        font-size: 15px;
+        margin: 25px auto; } }
+
+#reader.has-errorMessage {
+  display: none; }
+
+.dialog-annotations.editing {
+  display: block; }
+  @media screen and (max-width: 666px) {
+    .dialog-annotations.editing {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      border-radius: 0px; }
+      .dialog-annotations.editing .funnel, .dialog-annotations.editing .funnelDiamond {
+        display: none; } }
+  .dialog-annotations.editing .buttonbar {
+    display: block; }
+  .dialog-annotations.editing .separator {
+    display: block;
+    border-bottom: solid 1px #cacaca;
+    margin-bottom: 5px; }
+  .dialog-annotations.editing .notefield {
+    display: block;
+    box-sizing: border-box;
+    width: 95%;
+    height: 100px;
+    overflow: auto;
+    padding: 0px 5px 0px 5px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    margin: 10px auto;
+    opacity: 0.0;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -webkit-transition: padding 0.5s;
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: padding 0.5s;
+    -moz-transition: max-height 0.5s;
+    opacity: 1;
+    resize: none;
+    font-size: 14px;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-overflow-scrolling: touch; }
+  .dialog-annotations.editing .btn-remove {
+    display: block;
+    position: relative;
+    float: left;
+    background: url(../images/leser_ikoner/leser_ikoner_trash.svg) no-repeat;
+    margin: 10px 10px;
+    background-position: center center;
+    width: 20px;
+    height: 25px;
+    cursor: pointer; }
+  .dialog-annotations.editing .btn-close {
+    background-color: #09788b;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-size: 90%;
+    line-height: 24px;
+    margin-right: 10px;
+    margin-top: 5px;
+    min-width: 20px;
+    padding: 3px 13px;
+    text-align: center; }
+    .dialog-annotations.editing .btn-close:hover {
+      background-color: #0f5c6a; }
+  .dialog-annotations.editing .confirmationDialog {
+    position: absolute;
+    display: none;
+    left: 25%; }
+  .dialog-annotations.editing.confirmation .btn-close {
+    display: none; }
+  .dialog-annotations.editing.confirmation .btn-remove {
+    cursor: auto;
+    background: transparent; }
+  .dialog-annotations.editing.confirmation .btn-remove:after {
+    content: 'Slette?';
+    line-height: 22px; }
+  .dialog-annotations.editing.confirmation .confirmationDialog {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 55px; }
+    .dialog-annotations.editing.confirmation .confirmationDialog .btn-cancel, .dialog-annotations.editing.confirmation .confirmationDialog .btn-confirm {
+      background-color: #09788b;
+      border-radius: 3px;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      font-size: 90%;
+      line-height: 24px;
+      margin-right: 10px;
+      margin-top: 5px;
+      min-width: 20px;
+      padding: 3px 13px;
+      text-align: center;
+      float: left; }
+      .dialog-annotations.editing.confirmation .confirmationDialog .btn-cancel:hover, .dialog-annotations.editing.confirmation .confirmationDialog .btn-confirm:hover {
+        background-color: #0f5c6a; }
+    .dialog-annotations.editing.confirmation .confirmationDialog .btn-confirm {
+      margin-left: 15px; }
+  .dialog-annotations.editing .funnel {
+    top: -15px;
+    width: 100%;
+    height: 15px; }
+  .dialog-annotations.editing .funnelDiamond {
+    left: 234px;
+    top: 4px;
+    width: 24px;
+    height: 24px; }
+
+body.ie11 .dialog-lingit {
+  right: 20px !important; }
+
+.dialog-lingit {
+  display: none;
+  position: absolute;
+  right: 70px;
+  top: 86px;
+  width: 300px;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75); }
+  .dialog-lingit > * {
+    display: none; }
+  .dialog-lingit > .funnel {
+    display: block; }
+  .dialog-lingit .funnel {
+    position: absolute;
+    overflow: hidden; }
+  .dialog-lingit .funnelDiamond {
+    position: absolute;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    border: 1px solid #c3c3c3;
+    border-radius: 3px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #fcfcfc; }
+
+#reader.show-lingitDialog .dialog-lingit {
+  display: block; }
+  @media screen and (max-width: 666px) {
+    #reader.show-lingitDialog .dialog-lingit {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      border-radius: 0px; } }
+  #reader.show-lingitDialog .dialog-lingit .btn-lingit {
+    background-color: #09788b;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-size: 90%;
+    line-height: 24px;
+    margin-right: 10px;
+    margin-top: 5px;
+    min-width: 20px;
+    padding: 3px 13px;
+    text-align: center;
+    margin-top: 15px; }
+    #reader.show-lingitDialog .dialog-lingit .btn-lingit:hover {
+      background-color: #0f5c6a; }
+  #reader.show-lingitDialog .dialog-lingit #voiceList {
+    display: block;
+    position: relative;
+    float: left;
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 190px; }
+  #reader.show-lingitDialog .dialog-lingit #speedSelect {
+    display: block;
+    position: relative;
+    float: left;
+    margin-top: 20px;
+    margin-left: 60px;
+    width: 200px; }
+    #reader.show-lingitDialog .dialog-lingit #speedSelect .speed-btn {
+      border: 1px solid #c3c3c3;
+      padding: 5px;
+      float: left;
+      width: 50px;
+      text-align: center; }
+      #reader.show-lingitDialog .dialog-lingit #speedSelect .speed-btn#slow {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-right: 0px; }
+      #reader.show-lingitDialog .dialog-lingit #speedSelect .speed-btn#fast {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-left: 0px; }
+      #reader.show-lingitDialog .dialog-lingit #speedSelect .speed-btn.selected {
+        color: #ffffff;
+        background-color: #09788b; }
+  #reader.show-lingitDialog .dialog-lingit .funnel {
+    top: -15px;
+    width: 100%;
+    height: 15px; }
+  #reader.show-lingitDialog .dialog-lingit .funnelDiamond {
+    left: 185px;
+    top: 4px;
+    width: 24px;
+    height: 24px; }
+
+#reader.show-lingitDialog.noSelect .dialog-lingit {
+  display: block; }
+  #reader.show-lingitDialog.noSelect .dialog-lingit > * {
+    display: none; }
+  #reader.show-lingitDialog.noSelect .dialog-lingit .waitSelectionMessage {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    width: 172px;
+    margin: 10px auto; }
+  #reader.show-lingitDialog.noSelect .dialog-lingit #speedSelect {
+    display: none; }
+  #reader.show-lingitDialog.noSelect .dialog-lingit #voiceList {
+    display: none; }
+  #reader.show-lingitDialog.noSelect .dialog-lingit .btn-lingit {
+    display: none; }
+
+.bookMargin {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 30px; }
+  .bookMargin#marginLeft .marginContainer * {
+    float: left; }
+  .bookMargin#marginRight .marginContainer * {
+    float: right; }
+  .bookMargin .marginContainer {
+    box-sizing: border-box;
+    position: absolute;
+    width: 30px;
+    left: 0px;
+    overflow: hidden; }
+    @media screen and (max-width: 666px) {
+      .bookMargin .marginContainer {
+        display: none; } }
+    .bookMargin .marginContainer .pageNumber {
+      background-color: #d4ece6;
+      color: #484848;
+      font-size: 12px;
+      padding: 2px 6px;
+      text-align: center;
+      border-radius: 20px;
+      margin-right: 2px; }
+    .bookMargin .marginContainer .annotationIndicator {
+      background: url("../images/icons/pen.svg");
+      width: 16px;
+      height: 16px;
+      background-size: 16px 16px;
+      cursor: pointer;
+      margin-top: 4px; }
+      .bookMargin .marginContainer .annotationIndicator[data-colorid="1"] {
+        background-color: #EDEF85; }
+      .bookMargin .marginContainer .annotationIndicator[data-colorid="2"] {
+        background-color: #BBDCAE; }
+      .bookMargin .marginContainer .annotationIndicator[data-colorid="3"] {
+        background-color: #A5DBEB; }
+      .bookMargin .marginContainer .annotationIndicator[data-colorid="4"] {
+        background-color: #F79494; }
+    .bookMargin .marginContainer .bookmarkIndicator {
+      background: url("../images/leser_ikoner/leser_ikoner_lag_bokmerke-aktiv.svg");
+      width: 25px;
+      height: 25px;
+      margin-left: 2px;
+      background-size: 25px 25px;
+      cursor: default; }
+
+div#message {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(102, 102, 102, 0.8);
+  position: absolute;
+  text-align: center;
+  z-index: 100; }
+  div#message div.overlay {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    width: 50%;
+    margin: 20% auto;
+    padding-bottom: 10px;
+    background: white;
+    opacity: 1; }
+    @media screen and (max-width: 666px) {
+      div#message div.overlay {
+        width: 100%;
+        margin: auto; } }
+    div#message div.overlay .header {
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #d4d4db;
+      min-height: 30px;
+      padding-left: 5px; }
+      div#message div.overlay .header .logo {
+        float: left;
+        width: 30px;
+        height: 25px;
+        background-image: url(../images/unibok_logo_phat.svg);
+        background-size: 30px 25px;
+        margin-top: 2px; }
+      div#message div.overlay .header .separator {
+        float: left;
+        height: 23px;
+        margin: 4px;
+        border-left: 1px solid #1d7889; }
+      div#message div.overlay .header .unibok {
+        float: left;
+        width: 60px;
+        height: 15px;
+        background-image: url(../images/unibok_txt_black.svg);
+        background-size: 60px 15px;
+        margin-top: 7px; }
+    div#message div.overlay .title {
+      font-size: 1.2em;
+      margin-bottom: 0.5em; }
+    div#message div.overlay .text {
+      padding: 10px; }
+    div#message div.overlay .button, div#message div.overlay .moreInfoBtn {
+      margin-top: 0.5em;
+      -moz-user-select: none;
+      background-image: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.42857;
+      margin-bottom: 0;
+      padding: 6px 12px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      background-color: #1d7889;
+      color: #fff;
+      margin: 10px; }
+    div#message div.overlay .button:hover {
+      background-color: #0f5c6a; }
+    div#message div.overlay .moreInfo {
+      display: block; }
+
+#errorInfo textarea.stackTrace {
+  width: 98%;
+  height: 200px; }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: lighter;
+  font-style: normal;
+  src: url(../fonts/opensans-light.woff); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: normal;
+  src: url(../fonts/opensans-regular.woff); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: italic;
+  src: url(../fonts/opensans-italic.woff); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-style: normal;
+  src: url(../fonts/opensans-semibold.woff); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-style: italic;
+  src: url(../fonts/opensans-bolditalic.woff); }
+
+@font-face {
+  font-family: MJXc-TeX-ams-R;
+  src: local("MathJax_AMS"), local("MathJax_AMS-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-ams-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-cal-B;
+  src: local("MathJax_Caligraphic Bold"), local("MathJax_Caligraphic-Bold"); }
+
+@font-face {
+  font-family: MJXc-TeX-cal-Bx;
+  src: local("MathJax_Caligraphic");
+  font-weight: bold; }
+
+@font-face {
+  font-family: MJXc-TeX-cal-Bw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-frak-R;
+  src: local("MathJax_Fraktur"), local("MathJax_Fraktur-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-frak-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-frak-B;
+  src: local("MathJax_Fraktur Bold"), local("MathJax_Fraktur-Bold"); }
+
+@font-face {
+  font-family: MJXc-TeX-frak-Bx;
+  src: local("MathJax_Fraktur");
+  font-weight: bold; }
+
+@font-face {
+  font-family: MJXc-TeX-frak-Bw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-math-BI;
+  src: local("MathJax_Math BoldItalic"), local("MathJax_Math-BoldItalic"); }
+
+@font-face {
+  font-family: MJXc-TeX-math-BIx;
+  src: local("MathJax_Math");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: MJXc-TeX-math-BIw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-sans-R;
+  src: local("MathJax_SansSerif"), local("MathJax_SansSerif-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-sans-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-sans-B;
+  src: local("MathJax_SansSerif Bold"), local("MathJax_SansSerif-Bold"); }
+
+@font-face {
+  font-family: MJXc-TeX-sans-Bx;
+  src: local("MathJax_SansSerif");
+  font-weight: bold; }
+
+@font-face {
+  font-family: MJXc-TeX-sans-Bw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-sans-I;
+  src: local("MathJax_SansSerif Italic"), local("MathJax_SansSerif-Italic"); }
+
+@font-face {
+  font-family: MJXc-TeX-sans-Ix;
+  src: local("MathJax_SansSerif");
+  font-style: italic; }
+
+@font-face {
+  font-family: MJXc-TeX-sans-Iw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-script-R;
+  src: local("MathJax_Script"), local("MathJax_Script-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-script-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-type-R;
+  src: local("MathJax_Typewriter"), local("MathJax_Typewriter-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-type-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-cal-R;
+  src: local("MathJax_Caligraphic"), local("MathJax_Caligraphic-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-cal-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-main-B;
+  src: local("MathJax_Main Bold"), local("MathJax_Main-Bold"); }
+
+@font-face {
+  font-family: MJXc-TeX-main-Bx;
+  src: local("MathJax_Main");
+  font-weight: bold; }
+
+@font-face {
+  font-family: MJXc-TeX-main-Bw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-main-I;
+  src: local("MathJax_Main Italic"), local("MathJax_Main-Italic"); }
+
+@font-face {
+  font-family: MJXc-TeX-main-Ix;
+  src: local("MathJax_Main");
+  font-style: italic; }
+
+@font-face {
+  font-family: MJXc-TeX-main-Iw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-main-R;
+  src: local("MathJax_Main"), local("MathJax_Main-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-main-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-math-I;
+  src: local("MathJax_Math Italic"), local("MathJax_Math-Italic"); }
+
+@font-face {
+  font-family: MJXc-TeX-math-Ix;
+  src: local("MathJax_Math");
+  font-style: italic; }
+
+@font-face {
+  font-family: MJXc-TeX-math-Iw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-size1-R;
+  src: local("MathJax_Size1"), local("MathJax_Size1-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-size1-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-size2-R;
+  src: local("MathJax_Size2"), local("MathJax_Size2-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-size2-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-size3-R;
+  src: local("MathJax_Size3"), local("MathJax_Size3-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-size3-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: MJXc-TeX-size4-R;
+  src: local("MathJax_Size4"), local("MathJax_Size4-Regular"); }
+
+@font-face {
+  font-family: MJXc-TeX-size4-Rw;
+  src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff") format("woff"); }
+
+@keyframes leaflet-usermarker-pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 1; }
+  100% {
+    transform: scale(10);
+    margin-top: 100px;
+    opacity: 0.1;
+    margin-right: 100px; } }
+
+html {
+  height: 100%; }
+
+body {
+  margin: 0px;
+  font: 14px 'Open Sans', Helvetica, Arial, sans-serif;
+  height: 100%; }
+
+a {
+  color: #00B7FF; }
+
+* {
+  touch-callout: none !important;
+  -webkit-touch-callout: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; }
+
+/* without this, text selection doesn't work in IE */
+iframe {
+  user-select: text;
+  -ms-user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: textl;
+  /* Firefox all */ }
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text; }
+
+#login.active, #confirmLogin.active, #logout.active, #reader.active, #errorview.active, body.blocking > .blockingLayer, body.mathblocking > .blockingLayer {
+  display: block; }
+
+body > .lightbox-blockingLayer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px; }
+
+body > .lightbox {
+  position: absolute;
+  background-color: white;
+  border-radius: 2px; }
+  body > .lightbox .content {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px; }
+  body > .lightbox .closeButton {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background: #000 url(../images/leser_ikoner/leser_ikoner-lukk-white.svg) no-repeat;
+    width: 25px;
+    height: 25px;
+    cursor: pointer; }
+
+body > .lightbox.videoLightbox {
+  /* centering the lightbox vertically and horizontally */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  /* width: 90%; */
+  max-width: 1024px;
+  border: 10px solid white;
+  background-color: black;
+  box-sizing: border-box; }
+  @media screen and (max-width: 666px) {
+    body > .lightbox.videoLightbox {
+      width: 90%; } }
+  body > .lightbox.videoLightbox .content {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    box-sizing: border-box; }
+    body > .lightbox.videoLightbox .content video {
+      display: block;
+      width: 100%; }
+  body > .lightbox.videoLightbox .noAccessMessage {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    color: white;
+    background-color: black;
+    opacity: 0.6;
+    line-height: 550px;
+    text-align: center; }
+  body > .lightbox.videoLightbox .closeButton {
+    top: -20px;
+    right: -20px; }
+
+body.gotLokusSession .noAccessMessage {
+  display: none !important; }
+
+.lightbox.imageLightbox .content {
+  position: static;
+  padding: 10px; }
+  .lightbox.imageLightbox .content .image {
+    display: table;
+    width: 100%;
+    height: 100%; }
+    .lightbox.imageLightbox .content .image .alignmentHelper {
+      text-align: center;
+      vertical-align: middle; }
+  .lightbox.imageLightbox .content img {
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%; }
+  .lightbox.imageLightbox .content .caption {
+    max-height: 60px;
+    overflow-y: scroll;
+    font-family: sans-serif;
+    font-size: 13px;
+    line-height: 20px; }
+
+.lightbox.carouselLightbox .content {
+  overflow: hidden; }
+  .lightbox.carouselLightbox .content .slides {
+    position: relative;
+    height: 100%;
+    left: 0px;
+    width: 20000px;
+    overflow: hidden;
+    transition: left .5s; }
+  .lightbox.carouselLightbox .content .slide {
+    position: relative;
+    float: left;
+    height: 100%; }
+    .lightbox.carouselLightbox .content .slide .image {
+      display: table;
+      width: 100%;
+      height: 100%; }
+      .lightbox.carouselLightbox .content .slide .image .alignmentHelper {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle; }
+      .lightbox.carouselLightbox .content .slide .image img {
+        margin: auto;
+        max-height: 100%;
+        max-width: 100%; }
+    .lightbox.carouselLightbox .content .slide .caption {
+      position: absolute;
+      bottom: -3px;
+      left: 50px;
+      right: 0px;
+      overflow-y: scroll;
+      font-family: sans-serif;
+      font-size: 13px;
+      line-height: 20px; }
+    .lightbox.carouselLightbox .content .slide .caption-title {
+      margin-bottom: 5px;
+      font-weight: bold;
+      padding-right: 0.7em;
+      display: block; }
+  .lightbox.carouselLightbox .content .dotIndex {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    margin: auto;
+    cursor: pointer; }
+    .lightbox.carouselLightbox .content .dotIndex .dot {
+      background: url(../images/leser_ikoner/leser_ikoner_dot.svg) no-repeat;
+      background-size: 15px;
+      width: 30px;
+      height: 30px;
+      position: relative;
+      float: left; }
+      .lightbox.carouselLightbox .content .dotIndex .dot.active {
+        background: url(../images/leser_ikoner/leser_ikoner_dot_active.svg) no-repeat;
+        background-size: 15px; }
+  .lightbox.carouselLightbox .content .clickArea-prev,
+  .lightbox.carouselLightbox .content .clickArea-next {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: 20px; }
+  .lightbox.carouselLightbox .content .clickArea-prev {
+    left: 0px; }
+  .lightbox.carouselLightbox .content .clickArea-next {
+    right: 0px; }
+  .lightbox.carouselLightbox .content .clickArea-prev .btn-prev,
+  .lightbox.carouselLightbox .content .clickArea-next .btn-next {
+    position: absolute;
+    top: 5px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer; }
+    .lightbox.carouselLightbox .content .clickArea-prev .btn-prev.disabled,
+    .lightbox.carouselLightbox .content .clickArea-next .btn-next.disabled {
+      display: none; }
+  .lightbox.carouselLightbox .content .clickArea-prev .btn-prev {
+    background-image: url(../images/leser_ikoner/leser_ikoner_left_no_ring.svg);
+    left: 0px; }
+  .lightbox.carouselLightbox .content .clickArea-next .btn-next {
+    background-image: url(../images/leser_ikoner/leser_ikoner_right_no_ring.svg);
+    right: 0px; }
+
+.dialog.userbookDebugDialog {
+  position: absolute;
+  top: 40px;
+  bottom: 20px;
+  right: 40px;
+  width: 400px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 8px;
+  border: 1px solid gray; }
+  .dialog.userbookDebugDialog .scrollingBox {
+    overflow-y: scroll;
+    position: absolute;
+    top: 40px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px; }
+  .dialog.userbookDebugDialog .button {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid gray; }
+
+/* Legger det her inntil vi vet hvor det skal bo */
+body .invisibleBlockingLayer {
+  position: absolute;
+  background: transparent;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px; }
+
+body > .blockingLayer, body .browserBlockingLayer {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px; }
+  body > .blockingLayer .dialog, body .browserBlockingLayer .dialog {
+    position: absolute;
+    padding: 10px;
+    border-radius: 2px;
+    background-color: #fff;
+    max-height: 95%;
+    max-width: 95%; }
+    body > .blockingLayer .dialog .close-button, body .browserBlockingLayer .dialog .close-button {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      border: 2px solid white;
+      border-radius: 20px;
+      width: 25px;
+      height: 25px;
+      line-height: 0.8em;
+      font-size: 1.9em;
+      text-align: center;
+      font-family: sans-serif;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer; }
+    body > .blockingLayer .dialog .caption, body .browserBlockingLayer .dialog .caption {
+      position: absolute;
+      bottom: 3px;
+      font-style: italic;
+      background-color: #fff;
+      opacity: 0.7; }
+  body > .blockingLayer img, body .browserBlockingLayer img {
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%; }
+  body > .blockingLayer iframe, body .browserBlockingLayer iframe {
+    width: 100%;
+    height: 99%; }
+  body > .blockingLayer .loadIndicator, body .browserBlockingLayer .loadIndicator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -65px;
+    margin-top: -50px;
+    -webkit-animation: rotate 0.6s linear infinite;
+    -moz-animation: rotate 0.6s linear infinite;
+    -ms-animation: rotate 0.6s linear infinite;
+    -o-animation: rotate 0.6s linear infinite;
+    animation: rotate 0.6s linear infinite;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border-top: 14px solid #09788b;
+    border-bottom: 14px solid #d4d4db;
+    border-left: 14px solid #09788b;
+    border-right: 14px solid #d4d4db;
+    content: '';
+    opacity: 0.6; }
+
+.dialogWithFunnel {
+  position: fixed;
+  background: #FCFCFC;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75); }
+  .dialogWithFunnel .funnel {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    overflow: hidden; }
+  .dialogWithFunnel .funnelDaimond {
+    position: absolute;
+    left: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #FCFCFC;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75); }
+  .dialogWithFunnel.funnelside-top .funnel {
+    top: -20px; }
+  .dialogWithFunnel.funnelside-top .funnelDaimond {
+    top: 10px; }
+  .dialogWithFunnel.funnelside-bottom .funnel {
+    bottom: -20px; }
+  .dialogWithFunnel.funnelside-bottom .funnelDaimond {
+    bottom: 10px; }
+  .dialogWithFunnel .dialogContent {
+    padding: 10px; }
+  @media screen and (max-width: 666px) {
+    .dialogWithFunnel {
+      position: absolute;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      border-radius: 0px;
+      height: 200px !important; }
+      .dialogWithFunnel .funnel {
+        display: none; } }
+
+.blockingLayerGenericDialog.blockingLayer,
+#reader .blockingLayerGenericDialog.blockingLayer {
+  opacity: 0.7;
+  background-color: black;
+  display: block; }
+
+.genericDialog {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  transform: scale(1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+  height: 200px;
+  width: 300px; }
+  .genericDialog.fade-in {
+    transform: scale(1); }
+  .genericDialog .modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    position: relative;
+    text-align: center; }
+    .genericDialog .modal-content .modal-header {
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #d4d4db;
+      min-height: 30px;
+      padding-left: 5px; }
+      .genericDialog .modal-content .modal-header .dialogLogo {
+        float: left; }
+        .genericDialog .modal-content .modal-header .dialogLogo img {
+          width: 123px;
+          height: 23px;
+          margin-top: 3px;
+          margin-left: 3px; }
+    .genericDialog .modal-content .modal-body {
+      padding: 15px;
+      color: #636363; }
+      .genericDialog .modal-content .modal-body .modal-title {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 500; }
+    .genericDialog .modal-content .modal-footer {
+      padding-bottom: 15px; }
+      .genericDialog .modal-content .modal-footer .btn {
+        -moz-user-select: none;
+        background-image: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857;
+        margin-bottom: 0;
+        padding: 6px 12px;
+        text-align: center;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 80px; }
+      .genericDialog .modal-content .modal-footer .btn-primary {
+        background-color: #1d7889;
+        color: #fff; }
+      .genericDialog .modal-content .modal-footer .btn-primary:hover {
+        background-color: #0f5c6a; }
+      .genericDialog .modal-content .modal-footer .btn.confirm {
+        margin-right: 40px; }
+
+.glossaryDialog .dialogContent {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.glossaryDialog dl {
+  margin: 0; }
+  .glossaryDialog dl dt {
+    font-size: 1.2em;
+    color: #000;
+    letter-spacing: 0.1em;
+    font-weight: bold; }
+  .glossaryDialog dl dd {
+    margin: 0; }
+
+/* loading animation */
+@keyframes rotate {
+  0% {
+    transform: rotateZ(-360deg);
+    -webkit-transform: rotateZ(-360deg);
+    -moz-transform: rotateZ(-360deg);
+    -o-transform: rotateZ(-360deg); }
+  100% {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg); } }
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotateZ(-360deg);
+    -webkit-transform: rotateZ(-360deg);
+    -moz-transform: rotateZ(-360deg);
+    -o-transform: rotateZ(-360deg); }
+  100% {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg); } }
+
+@-moz-keyframes rotate {
+  0% {
+    transform: rotateZ(-360deg);
+    -webkit-transform: rotateZ(-360deg);
+    -moz-transform: rotateZ(-360deg);
+    -o-transform: rotateZ(-360deg); }
+  100% {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg); } }
+
+@-o-keyframes rotate {
+  0% {
+    transform: rotateZ(-360deg);
+    -webkit-transform: rotateZ(-360deg);
+    -moz-transform: rotateZ(-360deg);
+    -o-transform: rotateZ(-360deg); }
+  100% {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg); } }
