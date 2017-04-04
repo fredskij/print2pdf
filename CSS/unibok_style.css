@@ -2252,8 +2252,10 @@ body.ie11 #reader .topbar #itemContainer .itemList #layoutStylePanel {
   #reader .annotationsPanel [data-colorid="4"] .markedText {
     background-color: rgba(247, 148, 148, 0.4); }
   #reader .annotationsPanel .annotation svg {
-    vertical-align: -0.15em !important;
-    margin-left: -1em !important; }
+    vertical-align: 0px !important;
+    left: -14px !important;
+    position: relative;
+  }
   #reader .annotationsPanel .annotation .mjx-char {
     font-size: 2ex !important; }
   #reader .annotationsPanel .annotation .mjx-chtml {

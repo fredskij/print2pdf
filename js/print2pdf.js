@@ -61,16 +61,36 @@ $(function() {
 
 
         printFrame.contents().find('.html2canvasBtn').on('click', function (e) {
-
           var targetElem = $("#printFrame").contents().find('body');
 
-          html2canvas(targetElem).then(function (canvas) {
-                    // $(printFrame).contents().find('section').append(canvas);
-                    var imgData = canvas.toDataURL('image/png');
-                    var doc = new jsPDF('p', 'mm');
-                    doc.addImage(imgData, 'PNG', 10, 10);
-                    doc.save("oppskrift.pdf");
-          });
+          targetElem.find('svg').each(function(index, node) {
+
+            // magical SVG adjustments
+            var fontSize = Math.ceil(parseFloat(getComputedStyle(node).fontSize));
+            var mLeft =  7 * parseFloat(node.style.marginLeft);
+            var vAlign = Math.round(fontSize * parseFloat(node.style.verticalAlign));
+
+            $(node).removeAttr('style');
+            $(node).css({
+              'width': '12px',
+              'height': '10px',
+              'margin-left': mLeft,
+              'vertical-align': vAlign
+            });
+            $(node).find('line').css({
+              'fill': 'black',
+              'stroke': 'black'
+            });
+            $(node).attr('height', '10px');
+            $(node).attr('width',  '12px');
+
+          }).promise().done(html2canvas(targetElem).then(function (canvas) {
+              //$(printFrame).contents().find('section').append(canvas);
+              var imgData = canvas.toDataURL('image/png');
+              var doc = new jsPDF('p', 'mm');
+              doc.addImage(imgData, 'PNG', 10, 10);
+              doc.save("notater.pdf");
+          }));
         });
 
         printFrame.contents().find('.closeFrameBtn').on('click', function (e) {
