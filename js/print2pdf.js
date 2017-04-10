@@ -63,6 +63,14 @@ $(function() {
         printFrame.contents().find('.html2canvasBtn').on('click', function (e) {
           var targetElem = $("#printFrame").contents().find('body');
 
+            var options = {
+                height: 400,
+                width: 400,
+                letterRendering: true,
+                logging: true
+            };
+
+
           targetElem.find('svg').each(function(index, node) {
 
             // magical SVG adjustments
@@ -84,7 +92,7 @@ $(function() {
             $(node).attr('height', '10px');
             $(node).attr('width',  '12px');
 
-          }).promise().done(html2canvas(targetElem).then(function (canvas) {
+          }).promise().done(html2canvas(targetElem, options).then(function (canvas) {
               //$(printFrame).contents().find('section').append(canvas);
               var imgData = canvas.toDataURL('image/png');
               var doc = new jsPDF('p', 'mm');

@@ -3381,34 +3381,18 @@ div#message {
 
 @font-face {
   font-family: MJXc-TeX-size1-R;
-  src: local("MathJax_Size1"), local("MathJax_Size1-Regular"); }
-
-@font-face {
-  font-family: MJXc-TeX-size1-Rw;
   src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff") format("woff"); }
 
 @font-face {
   font-family: MJXc-TeX-size2-R;
-  src: local("MathJax_Size2"), local("MathJax_Size2-Regular"); }
-
-@font-face {
-  font-family: MJXc-TeX-size2-Rw;
   src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff") format("woff"); }
 
 @font-face {
   font-family: MJXc-TeX-size3-R;
-  src: local("MathJax_Size3"), local("MathJax_Size3-Regular"); }
-
-@font-face {
-  font-family: MJXc-TeX-size3-Rw;
   src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff") format("woff"); }
 
 @font-face {
   font-family: MJXc-TeX-size4-R;
-  src: local("MathJax_Size4"), local("MathJax_Size4-Regular"); }
-
-@font-face {
-  font-family: MJXc-TeX-size4-Rw;
   src: url("../js/thirdparty/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff") format("woff"); }
 
 @keyframes leaflet-usermarker-pulsate {
